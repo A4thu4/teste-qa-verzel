@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Saídas do Playwright (traces, vídeos e capturas de execuções locais)
+automacao/test-results/
+automacao/relatorio/
+
+# Anotações pessoais de estudo, fora da entrega
+GUIA_PESSOAL.md
