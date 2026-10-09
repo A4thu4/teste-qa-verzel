@@ -5,9 +5,11 @@ Uso, a partir da pasta automacao:
     python coletar_evidencias_api.py
 
 Cada chamada da lista CHAMADAS vira um arquivo em docs/evidencias/api/ com o
-método, a rota, o corpo enviado, o status e o corpo recebido. O script não
-julga se a resposta está certa: ele só registra o que a API respondeu. Usa
-apenas a biblioteca padrão do Python.
+método, a rota, o corpo enviado, o status, o cabeçalho Content-Type e o corpo
+recebido. Chamadas marcadas para repetir são enviadas mais de uma vez, e todas
+as respostas vão para o mesmo arquivo, para comparar. O script não julga se a
+resposta está certa: ele só registra o que a API respondeu. Usa apenas a
+biblioteca padrão do Python.
 """
 
 import json
@@ -25,7 +27,8 @@ def item(produto_id, quantidade):
     return {"produtoId": produto_id, "quantidade": quantidade}
 
 
-# (nome do arquivo, o que a chamada demonstra, método, rota, corpo)
+# (nome do arquivo, o que a chamada demonstra, método, rota, corpo[, vezes])
+# "vezes" é opcional: quantas vezes enviar a mesma requisição (padrão 1).
 CHAMADAS = [
     ("BUG-001-calcular-200", "Subtotal de exatamente R$ 200,00 (CA06)", "POST", "/api/carrinho/calcular",
      {"itens": [item("P005", 2)]}),
@@ -57,6 +60,12 @@ CHAMADAS = [
      {"cliente": CLIENTE, "itens": [item("P005", 1)], "cupom": "VERAO2026"}),
     ("CT-API-01-listar-produtos", "Lista de produtos", "GET", "/api/produtos", None),
     ("CT-API-03-produto-inexistente", "Produto inexistente", "GET", "/api/produtos/P999", None),
+    ("CT-API-08-formato-padrao-do-erro", "Formato padrão do erro e cabeçalho Content-Type", "POST", "/api/carrinho/calcular",
+     {"itens": [item("P001", 0)]}),
+    ("CT-APC-13-calculo-nao-grava-nada", "Mesmo cálculo enviado duas vezes: as respostas devem ser idênticas", "POST",
+     "/api/carrinho/calcular", {"itens": [item("P002", 1), item("P004", 2)], "cupom": "BEMVINDO10"}, 2),
+    ("CT-APP-10-numero-novo-a-cada-pedido", "Mesmo pedido enviado duas vezes: cada um recebe um número no formato VZ-000000", "POST",
+     "/api/pedidos", {"cliente": CLIENTE, "itens": [item("P005", 1)]}, 2),
 ]
 
 
@@ -70,10 +79,10 @@ def chamar(metodo, rota, corpo):
     )
     try:
         with urllib.request.urlopen(requisicao, timeout=30) as resposta:
-            return resposta.status, resposta.read().decode("utf-8")
+            return resposta.status, resposta.headers.get("Content-Type"), resposta.read().decode("utf-8")
     except urllib.error.HTTPError as erro:
         # Status 4xx chega como exceção, mas para o teste é uma resposta válida.
-        return erro.code, erro.read().decode("utf-8")
+        return erro.code, erro.headers.get("Content-Type"), erro.read().decode("utf-8")
 
 
 def formatar(texto):
@@ -85,8 +94,8 @@ def formatar(texto):
 
 def main():
     SAIDA.mkdir(parents=True, exist_ok=True)
-    for nome, descricao, metodo, rota, corpo in CHAMADAS:
-        status, texto = chamar(metodo, rota, corpo)
+    for nome, descricao, metodo, rota, corpo, *opcional in CHAMADAS:
+        vezes = opcional[0] if opcional else 1
         partes = [
             f"# {nome}",
             "",
@@ -102,9 +111,22 @@ def main():
         ]
         if corpo is not None:
             partes += ["", "```json", json.dumps(corpo, ensure_ascii=False, indent=2), "```"]
-        partes += ["", f"## Resposta: status {status}", "", "```json", formatar(texto), "```", ""]
+        for vez in range(1, vezes + 1):
+            status, tipo, texto = chamar(metodo, rota, corpo)
+            titulo = f"Resposta {vez}" if vezes > 1 else "Resposta"
+            partes += [
+                "",
+                f"## {titulo}: status {status}",
+                "",
+                f"Content-Type: `{tipo}`",
+                "",
+                "```json",
+                formatar(texto),
+                "```",
+            ]
+            print(f"{status}  {metodo:4} {rota:28} -> {nome}.md" + (f" ({vez}/{vezes})" if vezes > 1 else ""))
+        partes.append("")
         (SAIDA / f"{nome}.md").write_text("\n".join(partes), encoding="utf-8")
-        print(f"{status}  {metodo:4} {rota:28} -> {nome}.md")
 
 
 if __name__ == "__main__":
