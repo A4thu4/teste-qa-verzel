@@ -2,7 +2,7 @@
 
 Subtotal logo abaixo do limite do frete (CA07)
 
-Coletado em 09/10/2026 19:06:03
+Coletado em 09/10/2026 20:09:02 (horário de Brasília)
 
 ## Requisição
 
@@ -26,6 +26,8 @@ POST /api/carrinho/calcular
 ```
 
 ## Resposta: status 200
+
+Content-Type: `application/json; charset=utf-8`
 
 ```json
 {

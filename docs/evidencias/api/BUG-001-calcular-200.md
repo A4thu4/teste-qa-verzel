@@ -2,7 +2,7 @@
 
 Subtotal de exatamente R$ 200,00 (CA06)
 
-Coletado em 09/10/2026 19:06:03
+Coletado em 09/10/2026 20:09:01 (horário de Brasília)
 
 ## Requisição
 
@@ -22,6 +22,8 @@ POST /api/carrinho/calcular
 ```
 
 ## Resposta: status 200
+
+Content-Type: `application/json; charset=utf-8`
 
 ```json
 {

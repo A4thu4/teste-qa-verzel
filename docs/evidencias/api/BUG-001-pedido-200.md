@@ -2,7 +2,7 @@
 
 Pedido de exatamente R$ 200,00 (CA06)
 
-Coletado em 09/10/2026 19:06:03
+Coletado em 09/10/2026 20:09:01 (horário de Brasília)
 
 ## Requisição
 
@@ -28,10 +28,12 @@ POST /api/pedidos
 
 ## Resposta: status 201
 
+Content-Type: `application/json; charset=utf-8`
+
 ```json
 {
-  "numero": "VZ-381044",
-  "criadoEm": "2026-10-09T19:06:03.624Z",
+  "numero": "VZ-170415",
+  "criadoEm": "2026-10-09T23:09:02.107Z",
   "cliente": {
     "nome": "Maria Silva",
     "email": "maria@exemplo.com",

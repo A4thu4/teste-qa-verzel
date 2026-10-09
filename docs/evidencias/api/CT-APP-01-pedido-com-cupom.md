@@ -2,7 +2,7 @@
 
 Pedido válido com cupom
 
-Coletado em 09/10/2026 19:06:04
+Coletado em 09/10/2026 20:09:02 (horário de Brasília)
 
 ## Requisição
 
@@ -29,10 +29,12 @@ POST /api/pedidos
 
 ## Resposta: status 201
 
+Content-Type: `application/json; charset=utf-8`
+
 ```json
 {
-  "numero": "VZ-045193",
-  "criadoEm": "2026-10-09T19:06:04.205Z",
+  "numero": "VZ-228353",
+  "criadoEm": "2026-10-09T23:09:02.608Z",
   "cliente": {
     "nome": "Maria Silva",
     "email": "maria@exemplo.com",

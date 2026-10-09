@@ -2,7 +2,7 @@
 
 Pedido com cupom expirado (CA04)
 
-Coletado em 09/10/2026 19:06:04
+Coletado em 09/10/2026 20:09:02 (horário de Brasília)
 
 ## Requisição
 
@@ -28,6 +28,8 @@ POST /api/pedidos
 ```
 
 ## Resposta: status 422
+
+Content-Type: `application/json; charset=utf-8`
 
 ```json
 {

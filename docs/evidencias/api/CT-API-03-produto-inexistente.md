@@ -2,7 +2,7 @@
 
 Produto inexistente
 
-Coletado em 09/10/2026 19:06:04
+Coletado em 09/10/2026 20:09:02 (horário de Brasília)
 
 ## Requisição
 
@@ -11,6 +11,8 @@ GET /api/produtos/P999
 ```
 
 ## Resposta: status 404
+
+Content-Type: `application/json; charset=utf-8`
 
 ```json
 {
