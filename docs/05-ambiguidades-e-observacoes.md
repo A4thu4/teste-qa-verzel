@@ -23,4 +23,6 @@ Comportamentos notados durante a execução que não descumprem um critério de 
 
 | ID | Observação | Onde | Sugestão |
 | --- | --- | --- | --- |
-| OBS-01 | _preencher com o que for confirmado nas sessões exploratórias_ | | |
+| OBS-01 | Cupom só com espaços é tratado de forma diferente de cupom vazio. Com `""` a API entende "sem cupom" e aceita o pedido; com `"   "` o cálculo responde "Cupom inválido." com código vazio e o pedido é recusado com 422 `CUPOM_INVALIDO`. Pelo CA02 os espaços das pontas são ignorados, então os dois casos deveriam dar o mesmo resultado. | API, cálculo e pedido · [relatório, tentativas 1 e 6](evidencias/exploratorio/sessoes-api.md) | Aplicar a remoção de espaços antes de verificar se o cupom foi informado, tratando `"   "` como cupom vazio. |
+| OBS-02 | `GET /api` devolve a página HTML da loja com status 200, em vez do 404 `ROTA_NAO_ENCONTRADA` em JSON que a documentação descreve para rota inexistente. | API · [relatório, tentativa 7](evidencias/exploratorio/sessoes-api.md) | Responder 404 em JSON para qualquer caminho sob `/api` que não seja uma rota, incluindo o próprio `/api`. |
+| OBS-03 | A API aceita corpo enviado com `Content-Type` de formulário ou `text/plain`, embora a documentação diga para enviar sempre `application/json`. | API · [relatório, tentativas 10 e 11](evidencias/exploratorio/sessoes-api.md) | Recusar com 415 o que não for JSON, ou registrar na documentação que o cabeçalho é opcional. |

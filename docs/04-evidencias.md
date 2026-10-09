@@ -70,6 +70,12 @@ As evidências ficam na pasta [`evidencias/`](evidencias/). Cada arquivo começa
 | CT-CHK-11 | ✅ | [print](evidencias/feature_checkout/CT-CHK-11-erro-e-solicitar-corrigir-dados.png) |
 | CT-API-04 | ✅ | [print](evidencias/feature_api/CT-API-04-precos-vitrine-iguais-da-api.png) · comparado com [CT-API-01](evidencias/api/CT-API-01-listar-produtos.md) |
 
+## Sessões exploratórias
+
+| Sessão | Evidência |
+| --- | --- |
+| 1 (parte de API) e 4 | [Relatório das 21 tentativas de API](evidencias/exploratorio/sessoes-api.md), gerado por [`automacao/explorar_api.py`](../automacao/explorar_api.py) |
+
 ## Execução da automação
 
 Execução de 09/10/2026 no GitHub Codespaces. Relatório completo em [`evidencias/automacao/resultado.xml`](evidencias/automacao/resultado.xml).
@@ -100,4 +106,21 @@ XFAIL tests/api/test_quantidade.py::test_ct_qtd_07_calculo_recusa_6_unidades - B
 XFAIL tests/api/test_quantidade.py::test_ct_qtd_08_pedido_recusa_6_unidades - BUG-002: API aceita mais de 5 unidades do mesmo produto (CA10)
 XFAIL tests/ui/test_frete.py::test_ct_fre_01_subtotal_de_200_reais_tem_frete_gratis[chromium] - BUG-001: subtotal de exatamente R$ 200,00 não recebe frete grátis (CA06)
 ======================================================================== 97 passed, 6 xfailed in 32.31s ========================================================================
+```
+
+### Segunda execução: cenários de checkout automatizados depois
+
+CT-CHK-05, CT-CHK-07 e CT-CHK-12, executados em 09/10/2026 no GitHub Codespaces.
+
+```bash
+$ pytest tests/ui/test_checkout.py -k "chk_05 or chk_07 or chk_12"
+platform linux -- Python 3.12.11, pytest-8.4.1, pluggy-1.6.0
+rootdir: /workspaces/teste-qa-verzel/automacao
+configfile: pytest.ini
+plugins: playwright-0.10.0
+collected 29 items / 19 deselected / 10 selected
+
+tests/ui/test_checkout.py ..........                                     [100%]
+
+========================= 10 passed, 19 deselected in 7.61s =========================
 ```
