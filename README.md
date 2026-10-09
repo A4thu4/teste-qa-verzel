@@ -56,6 +56,7 @@ Documentos de apoio:
     ├── pytest.ini                endereço da loja e opções do pytest
     ├── conftest.py               fixtures compartilhadas
     ├── coletar_evidencias_api.py grava requisição e resposta da API em arquivos
+    ├── explorar_api.py           requisições fora do roteiro das sessões exploratórias
     ├── pages/loja.py             page objects: vitrine, carrinho, checkout, confirmação
     └── tests/
         ├── dados.py              produtos, cupons e cálculo do resultado esperado
@@ -117,6 +118,12 @@ Para gravar a requisição e a resposta das principais chamadas à API em `docs/
 
 ```powershell
 python coletar_evidencias_api.py
+```
+
+Para rodar as tentativas de API das sessões exploratórias e gravar o relatório em `docs/evidencias/exploratorio/sessoes-api.md`:
+
+```powershell
+python explorar_api.py
 ```
 
 ### No GitHub Codespaces, sem instalar nada no computador
