@@ -50,6 +50,7 @@ Documentos de apoio:
 │   │   ├── 07-api-carrinho.feature
 │   │   └── 08-api-pedidos.feature
 │   └── evidencias/               capturas de tela e respostas da API
+├── .devcontainer/                configuração do GitHub Codespaces
 └── automacao/
     ├── requirements.txt
     ├── pytest.ini                endereço da loja e opções do pytest
@@ -117,6 +118,27 @@ Para gravar a requisição e a resposta das principais chamadas à API em `docs/
 ```powershell
 python coletar_evidencias_api.py
 ```
+
+### No GitHub Codespaces, sem instalar nada no computador
+
+O repositório tem uma configuração de devcontainer em [`.devcontainer/`](.devcontainer/devcontainer.json). Ao criar um Codespace, as dependências e o Chromium são instalados automaticamente.
+
+1. Na página do repositório, clique em **Code**, aba **Codespaces**, e depois em **Create codespace on** o branch desejado.
+2. Espere a instalação terminar. O terminal mostra o progresso do `postCreateCommand` na primeira abertura.
+3. No terminal:
+
+```bash
+cd automacao
+pytest
+```
+
+O Codespace não tem tela, então os testes rodam sem abrir o navegador e a opção `--headed` não funciona. Para ver o que aconteceu em um teste de interface, gere o trace e abra o arquivo `trace.zip` em https://trace.playwright.dev:
+
+```bash
+pytest tests/ui --tracing on --output ../docs/evidencias/automacao
+```
+
+Os testes também aparecem na aba **Testing** do VS Code do Codespace, onde podem ser rodados um a um.
 
 ### Como ler o resultado
 
