@@ -18,17 +18,32 @@ As evidências ficam na pasta [`evidencias/`](evidencias/). Cada arquivo começa
 | BUG-001 | [Requisição e resposta da API](evidencias/api/BUG-001-calcular-200.md) |
 | BUG-002 | [Requisição e resposta da API](evidencias/api/BUG-002-pedido-6-unidades.md) |
 
-## Cenários por critério de aceite
+## Cenários
 
-_Uma linha por evidência. Modelo:_
+### API
 
 | Cenário | Resultado | Evidência |
 | --- | --- | --- |
-| CT-CUP-01 | ✅ | ![CT-CUP-01](evidencias/CT-CUP-01-cupom-aplicado.png) |
+| CT-APC-02 | ✅ | [CT-APC-02-cupom-minusculas-com-espacos](evidencias/api/CT-APC-02-cupom-minusculas-com-espacos.md) |
+| CT-APC-03 | ✅ | [CT-APC-03-cupom-inexistente](evidencias/api/CT-APC-03-cupom-inexistente.md) |
+| CT-APC-04 | ✅ | [CT-APC-04-cupom-expirado](evidencias/api/CT-APC-04-cupom-expirado.md) |
+| CT-APC-06 | ✅ no exemplo de R$ 199,70; os exemplos de R$ 200,00 falham pelo [BUG-001](03-bugs.md#bug-001) | [CT-APC-06-calcular-199-70](evidencias/api/CT-APC-06-calcular-199-70.md) |
+| CT-APC-07 | ✅ | [CT-APC-07-frete-antes-do-desconto](evidencias/api/CT-APC-07-frete-antes-do-desconto.md) |
+| CT-API-01 | ✅ | [CT-API-01-listar-produtos](evidencias/api/CT-API-01-listar-produtos.md) |
+| CT-API-03 | ✅ | [CT-API-03-produto-inexistente](evidencias/api/CT-API-03-produto-inexistente.md) |
+| CT-APP-01 | ✅ | [CT-APP-01-pedido-com-cupom](evidencias/api/CT-APP-01-pedido-com-cupom.md) |
+| CT-APP-04 | ✅ | [CT-APP-04-pedido-cupom-expirado](evidencias/api/CT-APP-04-pedido-cupom-expirado.md) |
+| CT-CAL-01 | ✅ | [CT-CAL-01-exemplo-da-documentacao](evidencias/api/CT-CAL-01-exemplo-da-documentacao.md) |
+| CT-QTD-06 | ✅ | [CT-QTD-06-calcular-5-unidades](evidencias/api/CT-QTD-06-calcular-5-unidades.md) |
+
+### Interface
+
+| Cenário | Resultado | Evidência |
+| --- | --- | --- |
 
 ## Execução da automação
 
-_Colar aqui o resumo final do pytest e apontar para o relatório salvo em `evidencias/automacao/`._
+Execução de 09/10/2026 no GitHub Codespaces. Relatório completo em [`evidencias/automacao/resultado.xml`](evidencias/automacao/resultado.xml).
 
 ```bash
 ============================================================================= test session starts ==============================================================================
