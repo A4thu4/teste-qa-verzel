@@ -5,8 +5,8 @@
 | Entrega | VZS-142, versão 2.3.0, publicada em 30/09/2026 |
 | Ambiente | <https://verzel-store.qa-test-verzel-store.workers.dev> |
 | Documentação | <https://verzel-store.qa-test-verzel-store.workers.dev/documentacao> |
-| Período de execução | _preencher_ |
-| Navegador e sistema | _preencher, por exemplo: Chrome 141, Windows 11_ |
+| Período de execução | 09/10/2026 |
+| Navegador e sistema | Brave/Chrome - Windows 11 |
 
 ## O que foi testado
 

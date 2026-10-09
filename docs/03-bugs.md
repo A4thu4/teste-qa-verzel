@@ -19,7 +19,7 @@ O critério usado para a severidade está em [01-plano-de-teste.md](01-plano-de-
 | Critério descumprido | CA06: "O frete é grátis para compras com subtotal a partir de R$ 200,00, inclusive." |
 | Onde ocorre | `POST /api/carrinho/calcular`, `POST /api/pedidos` e, por consequência, carrinho, checkout e confirmação na interface |
 | Cenários que falham | CT-FRE-01, CT-FRE-02, CT-FRE-08, CT-APC-06 (exemplos de R$ 200,00), CT-APP-05 |
-| Ambiente | Versão 2.3.0 · _navegador e sistema_ · _data da execução_ |
+| Ambiente | Versão 2.3.0 · Brave/Chrome Windows 11 · 09/10/2026 |
 
 ### Passos para reproduzir na interface
 
@@ -77,7 +77,7 @@ O cliente que monta um carrinho de exatamente R$ 200,00 paga R$ 19,90 que a prom
 | Critério descumprido | CA10: "Cada produto pode ter no máximo 5 unidades por pedido. A regra vale para a interface e para a API." |
 | Onde ocorre | `POST /api/carrinho/calcular` e `POST /api/pedidos` |
 | Cenários que falham | CT-QTD-07, CT-QTD-08 |
-| Ambiente | Versão 2.3.0 · _data da execução_ |
+| Ambiente | Versão 2.3.0 · Brave/Chrome Windows 11 · 09/10/2026 |
 
 ### Passos para reproduzir
 

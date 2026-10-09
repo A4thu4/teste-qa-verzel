@@ -3,9 +3,9 @@
 | | |
 | --- | --- |
 | Executado por | Arthur Mamedes Borges |
-| Data | _preencher_ |
+| Data | 09/10/2026 |
 | Ambiente | <https://verzel-store.qa-test-verzel-store.workers.dev>, versão 2.3.0 |
-| Navegador e sistema | _preencher_ |
+| Navegador e sistema | Brave/Chrome - Windows 11 |
 | Ambiente da automação | Chromium headless do Playwright, GitHub Codespaces (Linux, Python 3.12.11, pytest 8.4.1, pytest-playwright 0.10.0) |
 
 **Legenda do status:** ✅ passou · ❌ falhou (bug aberto) · ⚠️ passou com observação · ⬜ não executado
