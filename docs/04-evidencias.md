@@ -37,6 +37,9 @@ As evidências ficam na pasta [`evidencias/`](evidencias/). Cada arquivo começa
 | CT-APP-04 | ✅ | [CT-APP-04-pedido-cupom-expirado](evidencias/api/CT-APP-04-pedido-cupom-expirado.md) |
 | CT-CAL-01 | ✅ | [CT-CAL-01-exemplo-da-documentacao](evidencias/api/CT-CAL-01-exemplo-da-documentacao.md) |
 | CT-QTD-06 | ✅ | [CT-QTD-06-calcular-5-unidades](evidencias/api/CT-QTD-06-calcular-5-unidades.md) |
+| CT-API-08 | ✅ | [CT-API-08-formato-padrao-do-erro](evidencias/api/CT-API-08-formato-padrao-do-erro.md) |
+| CT-APC-13 | ✅ | [CT-APC-13-calculo-nao-grava-nada](evidencias/api/CT-APC-13-calculo-nao-grava-nada.md) |
+| CT-APP-10 | ✅ | [CT-APP-10-numero-novo-a-cada-pedido](evidencias/api/CT-APP-10-numero-novo-a-cada-pedido.md) |
 
 ### Interface
 

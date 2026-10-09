@@ -14,13 +14,13 @@
 
 | Total de cenários | ✅ Passou | ❌ Falhou | ⚠️ Com observação | ⬜ Não executado |
 | --- | --- | --- | --- | --- |
-| 84 | 70 | 7 | 0 | 7 |
+| 84 | 73 | 7 | 0 | 4 |
 
 Dos 84 cenários, 54 estão automatizados com Playwright e os outros 30 são executados manualmente.
 
 Os 54 automatizados foram executados em 09/10/2026: 49 passaram e 5 falharam pelos bugs BUG-001 e BUG-002. Na automação isso aparece como 97 testes `passed` e 6 `xfailed`, porque um cenário com vários exemplos vira vários testes. A saída completa está em [04-evidencias.md](04-evidencias.md#execução-da-automação) e o relatório em [`resultado.xml`](evidencias/automacao/resultado.xml).
 
-Dos 30 manuais, 23 foram executados em 09/10/2026: 21 passaram e 2 falharam pelo BUG-001 (CT-FRE-02 e CT-FRE-08). Faltam CT-CHK-05, CT-CHK-07, CT-CHK-12, CT-API-04, CT-API-08, CT-APC-13 e CT-APP-10.
+Dos 30 manuais, 26 foram executados em 09/10/2026: 24 passaram e 2 falharam pelo BUG-001 (CT-FRE-02 e CT-FRE-08). Os três de API (CT-API-08, CT-APC-13 e CT-APP-10) foram executados pelo script [`coletar_evidencias_api.py`](../automacao/coletar_evidencias_api.py). Faltam CT-CHK-05, CT-CHK-07, CT-CHK-12 e CT-API-04.
 
 ## Testes roteirizados
 
@@ -125,7 +125,7 @@ Arquivo: [`06-api-produtos-e-erros.feature`](cenarios/06-api-produtos-e-erros.fe
 | CT-API-05 | Rota inexistente devolve 404 ROTA_NAO_ENCONTRADA | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
 | CT-API-06 | Método não aceito pela rota devolve 405 METODO_NAO_PERMITIDO (4 exemplos) | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
 | CT-API-07 | Corpo que não é um objeto JSON válido devolve 400 JSON_INVALIDO (3 exemplos) | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
-| CT-API-08 | Todo erro segue o formato padrão | Doc. da API | API | Não | ⬜ | |
+| CT-API-08 | Todo erro segue o formato padrão | Doc. da API | API | Não | ✅ | [API](evidencias/api/CT-API-08-formato-padrao-do-erro.md) |
 
 ### API de cálculo do carrinho
 
@@ -145,7 +145,7 @@ Arquivo: [`07-api-carrinho.feature`](cenarios/07-api-carrinho.feature)
 | CT-APC-10 | Item que não é um objeto com produtoId e quantidade devolve 422 ITEM_INVALIDO | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
 | CT-APC-11 | Item com produto inexistente devolve 422 PRODUTO_NAO_ENCONTRADO | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
 | CT-APC-12 | Mesmo produto repetido na lista devolve 422 ITEM_DUPLICADO | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
-| CT-APC-13 | Cálculo não grava nada entre uma chamada e outra | Doc. da API | API | Não | ⬜ | |
+| CT-APC-13 | Cálculo não grava nada entre uma chamada e outra | Doc. da API | API | Não | ✅ | [API](evidencias/api/CT-APC-13-calculo-nao-grava-nada.md) |
 
 ### API de pedidos
 
@@ -162,7 +162,7 @@ Arquivo: [`08-api-pedidos.feature`](cenarios/08-api-pedidos.feature)
 | CT-APP-07 | Pedido sem os dados do cliente aponta os três campos | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
 | CT-APP-08 | CEP com 8 dígitos é aceito com ou sem hífen (2 exemplos) | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
 | CT-APP-09 | Pedido sem itens devolve 422 ITENS_OBRIGATORIOS | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
-| CT-APP-10 | Número do pedido é gerado a cada confirmação | Doc. da API | API | Não | ⬜ | |
+| CT-APP-10 | Número do pedido é gerado a cada confirmação | Doc. da API | API | Não | ✅ | [API](evidencias/api/CT-APP-10-numero-novo-a-cada-pedido.md) |
 
 ## Testes exploratórios
 
