@@ -2,7 +2,7 @@
 
 Cálculo com 5 unidades, no limite (CA10)
 
-Coletado em 09/10/2026 19:06:03
+Coletado em 09/10/2026 19:06:03 (UTC)
 
 ## Requisição
 

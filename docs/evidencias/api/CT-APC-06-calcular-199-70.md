@@ -2,7 +2,7 @@
 
 Subtotal logo abaixo do limite do frete (CA07)
 
-Coletado em 09/10/2026 19:06:03
+Coletado em 09/10/2026 19:06:03 (UTC)
 
 ## Requisição
 

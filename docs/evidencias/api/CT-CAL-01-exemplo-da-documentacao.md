@@ -2,7 +2,7 @@
 
 Exemplo de cálculo da documentação
 
-Coletado em 09/10/2026 19:06:03
+Coletado em 09/10/2026 19:06:03 (UTC)
 
 ## Requisição
 

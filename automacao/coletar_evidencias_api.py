@@ -15,11 +15,15 @@ biblioteca padrão do Python.
 import json
 import urllib.error
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 BASE = "https://verzel-store.qa-test-verzel-store.workers.dev"
 SAIDA = Path(__file__).resolve().parent.parent / "docs" / "evidencias" / "api"
+# Horário de Brasília fixo, para o registro não depender do fuso da máquina
+# (o Codespace roda em UTC, 3 horas à frente). O Brasil não tem horário de
+# verão desde 2019, então o deslocamento é sempre de -3 horas.
+BRASILIA = timezone(timedelta(hours=-3))
 CLIENTE = {"nome": "Maria Silva", "email": "maria@exemplo.com", "cep": "01310-100"}
 
 
@@ -101,7 +105,7 @@ def main():
             "",
             descricao,
             "",
-            f"Coletado em {datetime.now():%d/%m/%Y %H:%M:%S}",
+            f"Coletado em {datetime.now(BRASILIA):%d/%m/%Y %H:%M:%S} (horário de Brasília)",
             "",
             "## Requisição",
             "",

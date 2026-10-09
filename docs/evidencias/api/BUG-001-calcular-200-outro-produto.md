@@ -2,7 +2,7 @@
 
 R$ 200,00 com outro produto (CA06)
 
-Coletado em 09/10/2026 19:06:03
+Coletado em 09/10/2026 19:06:03 (UTC)
 
 ## Requisição
 

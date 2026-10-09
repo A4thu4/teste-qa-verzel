@@ -2,7 +2,7 @@
 
 Pedido com cupom expirado (CA04)
 
-Coletado em 09/10/2026 19:06:04
+Coletado em 09/10/2026 19:06:04 (UTC)
 
 ## Requisição
 

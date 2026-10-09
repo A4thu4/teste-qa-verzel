@@ -2,7 +2,7 @@
 
 Frete pelo subtotal antes do desconto (CA08)
 
-Coletado em 09/10/2026 19:06:03
+Coletado em 09/10/2026 19:06:03 (UTC)
 
 ## Requisição
 

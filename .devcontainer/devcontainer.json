@@ -9,6 +9,12 @@
   // navegador. O Yarn não é usado aqui, então esse repositório é removido antes.
   "postCreateCommand": "sudo grep -rl yarnpkg /etc/apt/sources.list.d | xargs -r sudo rm -f; pip install -r automacao/requirements.txt && python -m playwright install --with-deps chromium",
 
+  // Fuso de Brasília no terminal do Codespace, para que horários de saída
+  // (pytest, git, scripts) batam com o horário local.
+  "containerEnv": {
+    "TZ": "America/Sao_Paulo"
+  },
+
   "customizations": {
     "vscode": {
       "extensions": [
