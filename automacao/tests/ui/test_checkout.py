@@ -55,6 +55,21 @@ def test_ct_chk_04_nome_sem_sobrenome_e_recusado(checkout_aberto, nome, mensagem
 
 
 @pytest.mark.parametrize(
+    "nome",
+    ["Maria Silva", "Maria da Silva", "João Conceição", "Ana D'Ávila", "Ana-Maria Souza", "Li Wu"],
+    ids=["nome-e-sobrenome", "tres-partes", "acentos", "apostrofo", "hifen", "partes-de-duas-letras"],
+)
+def test_ct_chk_05_nome_com_nome_e_sobrenome_e_aceito(checkout_aberto, confirmacao, nome):
+    checkout = checkout_aberto
+
+    checkout.preencher(nome, EMAIL, CEP)
+    checkout.confirmar()
+
+    confirmacao.deve_estar_aberta()
+    expect(confirmacao.numero_pedido).to_have_text(re.compile(r"^VZ-\d{6}$"))
+
+
+@pytest.mark.parametrize(
     "email, mensagem",
     [
         ("", "Informe o e-mail."),
@@ -74,6 +89,21 @@ def test_ct_chk_06_email_invalido_e_recusado(checkout_aberto, email, mensagem):
 
     expect(checkout.erro_email).to_have_text(mensagem)
     checkout.deve_continuar_no_checkout()
+
+
+@pytest.mark.parametrize(
+    "email",
+    ["maria@exemplo.com", "maria.silva+teste@sub.exemplo.com.br", "MARIA@EXEMPLO.COM"],
+    ids=["formato-simples", "ponto-mais-e-subdominio", "maiusculas"],
+)
+def test_ct_chk_07_email_valido_e_aceito(checkout_aberto, confirmacao, email):
+    checkout = checkout_aberto
+
+    checkout.preencher(NOME, email, CEP)
+    checkout.confirmar()
+
+    confirmacao.deve_estar_aberta()
+    expect(confirmacao.numero_pedido).to_have_text(re.compile(r"^VZ-\d{6}$"))
 
 
 @pytest.mark.parametrize(
@@ -105,3 +135,19 @@ def test_ct_chk_09_cep_com_8_digitos_e_aceito(checkout_aberto, confirmacao, cep)
     checkout.confirmar()
 
     confirmacao.deve_estar_aberta()
+
+
+def test_ct_chk_12_checkout_com_carrinho_vazio_redireciona_para_o_carrinho(checkout_aberto, page):
+    # Esvazia o carrinho pela própria tela, como um cliente faria.
+    page.get_by_role("link", name="Voltar ao carrinho").click()
+    # Se a loja pedir confirmação para esvaziar, aceita; sem isso o Playwright
+    # recusaria a caixa de diálogo e o carrinho não seria esvaziado.
+    page.once("dialog", lambda dialogo: dialogo.accept())
+    page.get_by_role("button", name="Esvaziar carrinho").click()
+    expect(page.get_by_role("heading", name="Seu carrinho está vazio")).to_be_visible()
+
+    # goto recarrega a página na mesma aba: o carrinho vazio continua no sessionStorage.
+    page.goto("/checkout")
+
+    expect(page).to_have_url(re.compile(r"/carrinho$"))
+    expect(page.get_by_role("heading", name="Seu carrinho está vazio")).to_be_visible()

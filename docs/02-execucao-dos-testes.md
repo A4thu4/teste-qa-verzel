@@ -14,13 +14,13 @@
 
 | Total de cenários | ✅ Passou | ❌ Falhou | ⚠️ Com observação | ⬜ Não executado |
 | --- | --- | --- | --- | --- |
-| 84 | 73 | 7 | 0 | 4 |
+| 84 | 74 | 7 | 0 | 3 |
 
-Dos 84 cenários, 54 estão automatizados com Playwright e os outros 30 são executados manualmente.
+Dos 84 cenários, 57 estão automatizados com Playwright e os outros 27 são executados manualmente. CT-CHK-05, CT-CHK-07 e CT-CHK-12 foram planejados como manuais e passaram para a automação: os dois primeiros têm 9 exemplos que gerariam capturas repetidas, e o terceiro termina num redirecionamento que uma captura não mostra.
 
 Os 54 automatizados foram executados em 09/10/2026: 49 passaram e 5 falharam pelos bugs BUG-001 e BUG-002. Na automação isso aparece como 97 testes `passed` e 6 `xfailed`, porque um cenário com vários exemplos vira vários testes. A saída completa está em [04-evidencias.md](04-evidencias.md#execução-da-automação) e o relatório em [`resultado.xml`](evidencias/automacao/resultado.xml).
 
-Dos 30 manuais, 26 foram executados em 09/10/2026: 24 passaram e 2 falharam pelo BUG-001 (CT-FRE-02 e CT-FRE-08). Os três de API (CT-API-08, CT-APC-13 e CT-APP-10) foram executados pelo script [`coletar_evidencias_api.py`](../automacao/coletar_evidencias_api.py). Faltam CT-CHK-05, CT-CHK-07, CT-CHK-12 e CT-API-04.
+Os 27 manuais foram executados em 09/10/2026: 25 passaram e 2 falharam pelo BUG-001 (CT-FRE-02 e CT-FRE-08). Os três de API (CT-API-08, CT-APC-13 e CT-APP-10) foram executados pelo script [`coletar_evidencias_api.py`](../automacao/coletar_evidencias_api.py). Faltam os 3 que passaram para a automação: CT-CHK-05, CT-CHK-07 e CT-CHK-12.
 
 ## Testes roteirizados
 
@@ -103,14 +103,14 @@ Arquivo: [`05-checkout.feature`](cenarios/05-checkout.feature)
 | CT-CHK-02 | Resumo do checkout repete os valores e os itens do carrinho | Regressão | Interface | Não | ✅ | [checkout](evidencias/feature_checkout/CT-CHK-10-formulario-em-branco-aponta-obrigatorios.png) · [confirmação](evidencias/feature_checkout/CT-CHK-02e03-resumo-checkout-repete-valores-e-itens-com-pagamento-entrega.png) |
 | CT-CHK-03 | Checkout informa que o pagamento é feito na entrega | Regressão | Interface | Não | ✅ | [checkout](evidencias/feature_checkout/CT-CHK-10-formulario-em-branco-aponta-obrigatorios.png) · [confirmação](evidencias/feature_checkout/CT-CHK-02e03-resumo-checkout-repete-valores-e-itens-com-pagamento-entrega.png) |
 | CT-CHK-04 | Nome sem sobrenome é recusado (3 exemplos) | Regressão | Interface | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
-| CT-CHK-05 | Nome com nome e sobrenome é aceito (6 exemplos) | Regressão | Interface | Não | ⬜ | |
+| CT-CHK-05 | Nome com nome e sobrenome é aceito (6 exemplos) | Regressão | Interface | Sim | ⬜ | |
 | CT-CHK-06 | E-mail em formato inválido é recusado (7 exemplos) | Regressão | Interface | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
-| CT-CHK-07 | E-mail em formato válido é aceito (3 exemplos) | Regressão | Interface | Não | ⬜ | |
+| CT-CHK-07 | E-mail em formato válido é aceito (3 exemplos) | Regressão | Interface | Sim | ⬜ | |
 | CT-CHK-08 | CEP que não tem 8 dígitos é recusado (6 exemplos) | Regressão | Interface | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
 | CT-CHK-09 | CEP com 8 dígitos é aceito com ou sem hífen (2 exemplos) | Regressão | Interface | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
 | CT-CHK-10 | Formulário em branco aponta os três campos obrigatórios de uma vez | Regressão | Interface | Não | ✅ | [print](evidencias/feature_checkout/CT-CHK-10-formulario-em-branco-aponta-obrigatorios.png) |
 | CT-CHK-11 | Corrigir os dados depois de um erro permite confirmar o pedido | Regressão | Interface | Não | ✅ | [print](evidencias/feature_checkout/CT-CHK-11-erro-e-solicitar-corrigir-dados.png) |
-| CT-CHK-12 | Checkout não fica acessível com o carrinho vazio | Regressão | Interface | Não | ⬜ | |
+| CT-CHK-12 | Checkout não fica acessível com o carrinho vazio | Regressão | Interface | Sim | ⬜ | |
 
 ### API de produtos e tratamento geral de erros
 
@@ -121,7 +121,7 @@ Arquivo: [`06-api-produtos-e-erros.feature`](cenarios/06-api-produtos-e-erros.fe
 | CT-API-01 | Listar produtos devolve os 8 produtos da documentação | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) · [API](evidencias/api/CT-API-01-listar-produtos.md) |
 | CT-API-02 | Consultar um produto existente pelo id | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
 | CT-API-03 | Consultar um produto inexistente devolve 404 | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) · [API](evidencias/api/CT-API-03-produto-inexistente.md) |
-| CT-API-04 | Preços da vitrine são os mesmos devolvidos pela API | Doc. da API | API | Não | ⬜ | |
+| CT-API-04 | Preços da vitrine são os mesmos devolvidos pela API | Doc. da API | API | Não | ✅ | [print](evidencias/feature_api/CT-API-04-precos-vitrine-iguais-da-api.png) · [API](evidencias/api/CT-API-01-listar-produtos.md) |
 | CT-API-05 | Rota inexistente devolve 404 ROTA_NAO_ENCONTRADA | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
 | CT-API-06 | Método não aceito pela rota devolve 405 METODO_NAO_PERMITIDO (4 exemplos) | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
 | CT-API-07 | Corpo que não é um objeto JSON válido devolve 400 JSON_INVALIDO (3 exemplos) | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |

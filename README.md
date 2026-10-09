@@ -10,9 +10,9 @@ Validação da entrega **VZS-142, cupom de desconto e frete grátis** (versão 2
 | | |
 | --- | --- |
 | Cenários levantados | 84, cobrindo os 11 critérios de aceite, as regras anteriores à entrega e o contrato da API |
-| Cenários automatizados | 54, com Playwright (Python) |
-| Bugs encontrados | _preencher após a execução_ |
-| Parecer | _preencher: a entrega pode ou não seguir para produção, e por quê_ |
+| Cenários automatizados | 57, com Playwright (Python) |
+| Bugs encontrados | 2, ambos de severidade alta: [BUG-001](docs/03-bugs.md#bug-001), subtotal de exatamente R$ 200,00 sem frete grátis (CA06), e [BUG-002](docs/03-bugs.md#bug-002), API aceitando mais de 5 unidades por produto (CA10) |
+| Parecer | **Não recomendada para produção** até a correção dos dois bugs. O BUG-001 cobra frete de quem a promoção anunciada diz que não deveria pagar, inclusive em pedidos confirmados. O BUG-002 deixa uma regra de negócio depender só da tela: quem chama a API direto fecha pedidos acima do limite. Os outros 9 critérios de aceite foram atendidos na interface e na API, com a ressalva do CA11: o arredondamento não pôde ser exercitado com os dados disponíveis ([AMB-01](docs/05-ambiguidades-e-observacoes.md)). |
 
 ## Onde encontrar cada entrega
 

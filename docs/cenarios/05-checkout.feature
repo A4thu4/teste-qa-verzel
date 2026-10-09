@@ -47,7 +47,7 @@ Funcionalidade: Finalização da compra
       | Maria  | Informe nome e sobrenome. | só o primeiro nome           |
       | Maria␣ | Informe nome e sobrenome. | primeiro nome seguido de espaço |
 
-  @CT-CHK-05 @interface
+  @CT-CHK-05 @interface @automatizado
   Esquema do Cenário: Nome com nome e sobrenome é aceito
     Quando preencho o nome "<nome>", o e-mail "maria@exemplo.com" e o CEP "01310-100"
     E confirmo o pedido
@@ -80,7 +80,7 @@ Funcionalidade: Finalização da compra
       | maria silva@exemplo.com | Informe um e-mail válido. | com espaço no meio  |
       | maria@@exemplo.com      | Informe um e-mail válido. | duas arrobas        |
 
-  @CT-CHK-07 @interface
+  @CT-CHK-07 @interface @automatizado
   Esquema do Cenário: E-mail em formato válido é aceito
     Quando preencho o nome "Maria Silva", o e-mail "<email>" e o CEP "01310-100"
     E confirmo o pedido
@@ -137,8 +137,9 @@ Funcionalidade: Finalização da compra
     Então sou levado para a página "Pedido confirmado"
 
   # ---------------------------------------------------------- Navegação
-  @CT-CHK-12 @interface
+  @CT-CHK-12 @interface @automatizado
   Cenário: Checkout não fica acessível com o carrinho vazio
     Dado que esvaziei o carrinho
     Quando acesso o endereço "/checkout" diretamente
-    Então vejo a mensagem "Seu carrinho está vazio"
+    Então sou redirecionado para o carrinho
+    E vejo a mensagem "Seu carrinho está vazio"

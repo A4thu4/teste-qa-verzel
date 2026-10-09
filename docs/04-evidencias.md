@@ -68,6 +68,7 @@ As evidências ficam na pasta [`evidencias/`](evidencias/). Cada arquivo começa
 | CT-CHK-03 | ✅ | [checkout](evidencias/feature_checkout/CT-CHK-10-formulario-em-branco-aponta-obrigatorios.png) · [confirmação](evidencias/feature_checkout/CT-CHK-02e03-resumo-checkout-repete-valores-e-itens-com-pagamento-entrega.png) |
 | CT-CHK-10 | ✅ | [print](evidencias/feature_checkout/CT-CHK-10-formulario-em-branco-aponta-obrigatorios.png) |
 | CT-CHK-11 | ✅ | [print](evidencias/feature_checkout/CT-CHK-11-erro-e-solicitar-corrigir-dados.png) |
+| CT-API-04 | ✅ | [print](evidencias/feature_api/CT-API-04-precos-vitrine-iguais-da-api.png) · comparado com [CT-API-01](evidencias/api/CT-API-01-listar-produtos.md) |
 
 ## Execução da automação
 
