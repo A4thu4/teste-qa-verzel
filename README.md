@@ -57,6 +57,7 @@ Documentos de apoio:
     ├── conftest.py               fixtures compartilhadas
     ├── coletar_evidencias_api.py grava requisição e resposta da API em arquivos
     ├── explorar_api.py           requisições fora do roteiro das sessões exploratórias
+    ├── explorar_interface.py     tentativas fora do roteiro na interface, com capturas
     ├── pages/loja.py             page objects: vitrine, carrinho, checkout, confirmação
     └── tests/
         ├── dados.py              produtos, cupons e cálculo do resultado esperado
@@ -124,6 +125,12 @@ Para rodar as tentativas de API das sessões exploratórias e gravar o relatóri
 
 ```powershell
 python explorar_api.py
+```
+
+Para rodar as tentativas de interface das sessões exploratórias, com uma captura de cada uma, e gravar o relatório em `docs/evidencias/exploratorio/sessoes-interface.md` (no Windows, acrescente `--headed` para ver o navegador):
+
+```powershell
+python explorar_interface.py
 ```
 
 ### No GitHub Codespaces, sem instalar nada no computador
