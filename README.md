@@ -2,13 +2,13 @@
 
 Validação da entrega **VZS-142, cupom de desconto e frete grátis** (versão 2.3.0) da Verzel Store.
 
-- Loja: https://verzel-store.qa-test-verzel-store.workers.dev/
-- Documentação da entrega: https://verzel-store.qa-test-verzel-store.workers.dev/documentacao
+- Loja: <https://verzel-store.qa-test-verzel-store.workers.dev/>
+- Documentação da entrega: <https://verzel-store.qa-test-verzel-store.workers.dev/documentacao>
 
 ## Resultado em resumo
 
 | | |
-|---|---|
+| --- | --- |
 | Cenários levantados | 84, cobrindo os 11 critérios de aceite, as regras anteriores à entrega e o contrato da API |
 | Cenários automatizados | 54, com Playwright (Python) |
 | Bugs encontrados | _preencher após a execução_ |
@@ -17,7 +17,7 @@ Validação da entrega **VZS-142, cupom de desconto e frete grátis** (versão 2
 ## Onde encontrar cada entrega
 
 | Entrega pedida | Onde está |
-|---|---|
+| --- | --- |
 | Cenários de teste em Gherkin | [`docs/cenarios/`](docs/cenarios/), um arquivo `.feature` por funcionalidade |
 | Execução dos testes, manuais e exploratórios, com o resultado de cada cenário | [`docs/02-execucao-dos-testes.md`](docs/02-execucao-dos-testes.md) |
 | Report dos bugs | [`docs/03-bugs.md`](docs/03-bugs.md) |
@@ -32,7 +32,7 @@ Documentos de apoio:
 
 ## Estrutura do repositório
 
-```
+```bash
 ├── README.md
 ├── docs/
 │   ├── 01-plano-de-teste.md
@@ -68,7 +68,7 @@ Documentos de apoio:
 Cada cenário tem um ID no formato `CT-<área>-<número>`, usado igual nos arquivos `.feature`, na tabela de execução, nos bugs, nos nomes das evidências e nos nomes dos testes automatizados (`test_ct_cup_01_...`).
 
 | Prefixo | Área |
-|---|---|
+| --- | --- |
 | CT-CUP | Cupom de desconto (CA01 a CA05) |
 | CT-FRE | Frete grátis (CA06 a CA09) |
 | CT-QTD | Limite de unidades por produto (CA10) |
@@ -132,7 +132,7 @@ cd automacao
 pytest
 ```
 
-O Codespace não tem tela, então os testes rodam sem abrir o navegador e a opção `--headed` não funciona. Para ver o que aconteceu em um teste de interface, gere o trace e abra o arquivo `trace.zip` em https://trace.playwright.dev:
+O Codespace não tem tela, então os testes rodam sem abrir o navegador e a opção `--headed` não funciona. Para ver o que aconteceu em um teste de interface, gere o trace e abra o arquivo `trace.zip` em <https://trace.playwright.dev>:
 
 ```bash
 pytest tests/ui --tracing on --output ../docs/evidencias/automacao
@@ -145,7 +145,7 @@ Os testes também aparecem na aba **Testing** do VS Code do Codespace, onde pode
 Os testes descrevem o comportamento **esperado pela documentação**. Os que cobrem um bug já reportado estão marcados com `xfail` e o ID do bug:
 
 | Resultado | Significado |
-|---|---|
+| --- | --- |
 | `passed` | A loja se comporta como a documentação descreve. |
 | `xfailed` | Falha esperada: o teste confirma que um bug já reportado continua presente. O motivo aparece no resumo final. |
 | `failed` | Comportamento diferente do esperado e ainda não reportado. Precisa ser investigado. |
