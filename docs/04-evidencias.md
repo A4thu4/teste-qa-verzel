@@ -6,7 +6,7 @@ As evidências ficam na pasta [`evidencias/`](evidencias/). Cada arquivo começa
 
 | Tipo | Como | Onde fica |
 | --- | --- | --- |
-| Interface, execução manual | Captura de tela do resultado de cada cenário | `evidencias/*.png` |
+| Interface, execução manual | Captura de tela do resultado de cada cenário | `evidencias/feature_*/`, uma pasta por funcionalidade |
 | API | Script [`automacao/coletar_evidencias_api.py`](../automacao/coletar_evidencias_api.py), que grava a requisição e a resposta de cada chamada | `evidencias/api/*.md` |
 | Automação | Relatório do pytest e captura de tela, vídeo e trace do Playwright nos testes que falham | `evidencias/automacao/` |
 
@@ -14,9 +14,11 @@ As evidências ficam na pasta [`evidencias/`](evidencias/). Cada arquivo começa
 
 | Bug | Evidência |
 | --- | --- |
-| BUG-001 | ![Carrinho com subtotal de R$ 200,00 cobrando frete](evidencias/BUG-001-carrinho-200.png) |
+| BUG-001 | [Carrinho com R$ 200,00 em garrafas cobrando frete (CT-FRE-02)](evidencias/feature_frete/CT-FRE-02-subtotal-200-frete-gratis.png) |
+| BUG-001 | [Carrinho com R$ 200,00 e cupom cobrando frete (CT-FRE-08)](evidencias/feature_frete/CT-FRE-08-subtotal-200-com-cupom-frete-gratis.png) |
 | BUG-001 | [Requisição e resposta da API](evidencias/api/BUG-001-calcular-200.md) |
 | BUG-002 | [Requisição e resposta da API](evidencias/api/BUG-002-pedido-6-unidades.md) |
+| BUG-002 | [Vitrine bloqueando a 6ª unidade, para comparação (CT-QTD-05)](evidencias/feature_qntd/CT-QTD-05-limite-continua-na-vitrine.png) |
 
 ## Cenários
 
@@ -40,6 +42,29 @@ As evidências ficam na pasta [`evidencias/`](evidencias/). Cada arquivo começa
 
 | Cenário | Resultado | Evidência |
 | --- | --- | --- |
+| CT-CUP-02 | ✅ | [print](evidencias/feature_cupom/CT-CUP-02-desconto-sobre-todos-produtos.png) |
+| CT-CUP-03 | ✅ | [print](evidencias/feature_cupom/CT-CUP-03-desconto-recalculado-cupom-aplicado.png) |
+| CT-CUP-05 | ✅ | [print](evidencias/feature_cupom/CT-CUP-05-espaco-ignorado-cupom-invalido.png) |
+| CT-CUP-07 | ✅ | [print](evidencias/feature_cupom/CT-CUP-07-cupom-vazio-nao-gera-desconto.png) |
+| CT-CUP-09 | ✅ | [print](evidencias/feature_cupom/CT-CUP-09-cupom-minusculo-continua-expirado.png) |
+| CT-CUP-12 | ✅ | [print 1](evidencias/feature_cupom/CT-CUP-12_1-cupom-exige-remover-atual.png) · [print 2](evidencias/feature_cupom/CT-CUP-12_2-cupom-exige-remover-atual.png) |
+| CT-CUP-13 | ✅ | [print 1](evidencias/feature_cupom/CT-CUP-13_1-cupom-valido-aplicado-apos-invalido.png) · [print 2](evidencias/feature_cupom/CT-CUP-13_2-cupom-valido-aplicado-apos-invalido.png) |
+| CT-CUP-15 | ✅ | [print 1](evidencias/feature_cupom/CT-CUP-15_1-cupom-ativado-apos-remover-item.png) · [print 2](evidencias/feature_cupom/CT-CUP-15_2-cupom-ativado-apos-remover-item.png) |
+| CT-FRE-02 | ❌ [BUG-001](03-bugs.md#bug-001) | [print](evidencias/feature_frete/CT-FRE-02-subtotal-200-frete-gratis.png) |
+| CT-FRE-05 | ✅ | [print](evidencias/feature_frete/CT-FRE-05-compra-pequena-frete-fixo.png) |
+| CT-FRE-06 | ✅ | [print 1](evidencias/feature_frete/CT-FRE-06_1-frete-aviso-atualizados-subtotal-cruza-limite.png) · [print 2](evidencias/feature_frete/CT-FRE-06_2-frete-aviso-atualizados-subtotal-cruza-limite.png) |
+| CT-FRE-08 | ❌ [BUG-001](03-bugs.md#bug-001) | [print](evidencias/feature_frete/CT-FRE-08-subtotal-200-com-cupom-frete-gratis.png) |
+| CT-FRE-09 | ✅ | [print](evidencias/feature_frete/CT-FRE-09-cupom-nao-altera-faltante-para-frete.png) |
+| CT-FRE-11 | ✅ | [print](evidencias/feature_frete/CT-FRE-11-frete-gratis-mantido-checkout-e-confirmacao.png) |
+| CT-QTD-03 | ✅ | [print](evidencias/feature_qntd/CT-QTD-03-botao-diminuir-desabilitado.png) |
+| CT-QTD-04 | ✅ | [print](evidencias/feature_qntd/CT-QTD-04-limite-por-produto-nao-total.png) |
+| CT-QTD-05 | ✅ | [print](evidencias/feature_qntd/CT-QTD-05-limite-continua-na-vitrine.png) |
+| CT-CAL-05 | ✅ | [print](evidencias/feature_calculo/CT-CAL-05-exibe-valores-decimais-em-ptbr.png) |
+| CT-CAL-06 | ✅ | [print](evidencias/feature_calculo/CT-CAL-06-valores-acima-1000-separa-por-milhar.png) |
+| CT-CHK-02 | ✅ | [checkout](evidencias/feature_checkout/CT-CHK-10-formulario-em-branco-aponta-obrigatorios.png) · [confirmação](evidencias/feature_checkout/CT-CHK-02e03-resumo-checkout-repete-valores-e-itens-com-pagamento-entrega.png) |
+| CT-CHK-03 | ✅ | [checkout](evidencias/feature_checkout/CT-CHK-10-formulario-em-branco-aponta-obrigatorios.png) · [confirmação](evidencias/feature_checkout/CT-CHK-02e03-resumo-checkout-repete-valores-e-itens-com-pagamento-entrega.png) |
+| CT-CHK-10 | ✅ | [print](evidencias/feature_checkout/CT-CHK-10-formulario-em-branco-aponta-obrigatorios.png) |
+| CT-CHK-11 | ✅ | [print](evidencias/feature_checkout/CT-CHK-11-erro-e-solicitar-corrigir-dados.png) |
 
 ## Execução da automação
 

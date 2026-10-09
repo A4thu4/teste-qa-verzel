@@ -62,8 +62,10 @@ O cliente que monta um carrinho de exatamente R$ 200,00 paga R$ 19,90 que a prom
 
 ### Evidências
 
-- Interface: `evidencias/BUG-001-carrinho-200.png`
-- API: `evidencias/api/BUG-001-calcular-200.md`
+- Interface, 4 garrafas somando R$ 200,00: [CT-FRE-02](evidencias/feature_frete/CT-FRE-02-subtotal-200-frete-gratis.png)
+- Interface, 2 mochilas com cupom, total R$ 199,90 em vez de R$ 180,00: [CT-FRE-08](evidencias/feature_frete/CT-FRE-08-subtotal-200-com-cupom-frete-gratis.png)
+- API, cálculo: [BUG-001-calcular-200](evidencias/api/BUG-001-calcular-200.md) e [BUG-001-calcular-200-outro-produto](evidencias/api/BUG-001-calcular-200-outro-produto.md)
+- API, pedido confirmado com frete cobrado: [BUG-001-pedido-200](evidencias/api/BUG-001-pedido-200.md)
 
 ---
 
@@ -113,5 +115,6 @@ Qualquer cliente que chame a API diretamente, sem passar pela tela, fecha um ped
 
 ### Evidências
 
-- API: `evidencias/api/BUG-002-pedido-6-unidades.md`
-- Interface respeitando o limite, para comparação: `evidencias/CT-QTD-01-limite-vitrine.png`
+- API, cálculo: [BUG-002-calcular-6-unidades](evidencias/api/BUG-002-calcular-6-unidades.md)
+- API, pedido confirmado com 6 unidades: [BUG-002-pedido-6-unidades](evidencias/api/BUG-002-pedido-6-unidades.md)
+- Interface respeitando o limite, para comparação: [vitrine](evidencias/feature_qntd/CT-QTD-05-limite-continua-na-vitrine.png) e [carrinho](evidencias/feature_qntd/CT-QTD-04-limite-por-produto-nao-total.png)

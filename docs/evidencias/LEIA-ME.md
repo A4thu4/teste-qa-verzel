@@ -1,7 +1,7 @@
 # Pasta de evidências
 
-Padrão de nome: `<ID>-<descrição-curta>.<extensão>`, por exemplo `CT-FRE-04-frete-199-70.png` ou `BUG-001-carrinho-200.png`.
+Padrão de nome: `<ID>-<descrição-curta>.<extensão>`, por exemplo `CT-FRE-05-compra-pequena-frete-fixo.png`. Quando um cenário tem mais de uma captura, o número da etapa vem depois do ID: `CT-CUP-12_1-...` e `CT-CUP-12_2-...`.
 
-- `*.png`: capturas de tela da execução manual
-- `api/`: requisição e resposta das chamadas à API
-- `automacao/`: relatório e artefatos da execução do Playwright
+- `feature_cupom/`, `feature_frete/`, `feature_qntd/`, `feature_calculo/`, `feature_checkout/`: capturas de tela da execução manual, uma pasta por funcionalidade
+- `api/`: requisição e resposta das chamadas à API, gravadas por `automacao/coletar_evidencias_api.py`
+- `automacao/`: relatório da execução do Playwright
