@@ -4,7 +4,10 @@
 
   // Roda uma vez, quando o Codespace é criado: instala as dependências
   // da automação e o Chromium com as bibliotecas de sistema que ele precisa.
-  "postCreateCommand": "pip install -r automacao/requirements.txt && python -m playwright install --with-deps chromium",
+  // A imagem base traz o repositório apt do Yarn com a chave de assinatura
+  // vencida, o que faz o apt-get update falhar e aborta a instalação do
+  // navegador. O Yarn não é usado aqui, então esse repositório é removido antes.
+  "postCreateCommand": "sudo grep -rl yarnpkg /etc/apt/sources.list.d | xargs -r sudo rm -f; pip install -r automacao/requirements.txt && python -m playwright install --with-deps chromium",
 
   "customizations": {
     "vscode": {
