@@ -1,7 +1,7 @@
 # Bugs encontrados
 
 | ID | Título | Severidade | Critério | Onde |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | [BUG-001](#bug-001) | Subtotal de exatamente R$ 200,00 não recebe frete grátis | Alta | CA06 | API e interface |
 | [BUG-002](#bug-002) | API aceita mais de 5 unidades do mesmo produto | Alta | CA10 | API |
 
@@ -14,7 +14,7 @@ O critério usado para a severidade está em [01-plano-de-teste.md](01-plano-de-
 **Subtotal de exatamente R$ 200,00 não recebe frete grátis**
 
 | | |
-|---|---|
+| --- | --- |
 | Severidade | Alta |
 | Critério descumprido | CA06: "O frete é grátis para compras com subtotal a partir de R$ 200,00, inclusive." |
 | Onde ocorre | `POST /api/carrinho/calcular`, `POST /api/pedidos` e, por consequência, carrinho, checkout e confirmação na interface |
@@ -29,7 +29,7 @@ O critério usado para a severidade está em [01-plano-de-teste.md](01-plano-de-
 
 ### Passos para reproduzir na API
 
-```
+```bash
 POST /api/carrinho/calcular
 Content-Type: application/json
 
@@ -72,7 +72,7 @@ O cliente que monta um carrinho de exatamente R$ 200,00 paga R$ 19,90 que a prom
 **API aceita mais de 5 unidades do mesmo produto**
 
 | | |
-|---|---|
+| --- | --- |
 | Severidade | Alta |
 | Critério descumprido | CA10: "Cada produto pode ter no máximo 5 unidades por pedido. A regra vale para a interface e para a API." |
 | Onde ocorre | `POST /api/carrinho/calcular` e `POST /api/pedidos` |
@@ -81,7 +81,7 @@ O cliente que monta um carrinho de exatamente R$ 200,00 paga R$ 19,90 que a prom
 
 ### Passos para reproduzir
 
-```
+```bash
 POST /api/pedidos
 Content-Type: application/json
 

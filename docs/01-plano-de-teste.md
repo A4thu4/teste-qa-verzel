@@ -1,10 +1,10 @@
 # Plano de teste: VZS-142, cupom de desconto e frete grátis
 
 | | |
-|---|---|
+| --- | --- |
 | Entrega | VZS-142, versão 2.3.0, publicada em 30/09/2026 |
-| Ambiente | https://verzel-store.qa-test-verzel-store.workers.dev |
-| Documentação | https://verzel-store.qa-test-verzel-store.workers.dev/documentacao |
+| Ambiente | <https://verzel-store.qa-test-verzel-store.workers.dev> |
+| Documentação | <https://verzel-store.qa-test-verzel-store.workers.dev/documentacao> |
 | Período de execução | _preencher_ |
 | Navegador e sistema | _preencher, por exemplo: Chrome 141, Windows 11_ |
 
@@ -17,7 +17,7 @@
 ## O que ficou de fora
 
 | Item | Motivo |
-|---|---|
+| --- | --- |
 | Carga, estresse e segurança | Fora do escopo pelo enunciado: o ambiente é compartilhado. |
 | Login, cadastro, pagamento online, consulta de pedidos | Fora do escopo pela documentação. |
 | Carrinho entre abas, armazenamento de pedidos, envio de e-mail, estoque | Simplificações declaradas na seção "Sobre este ambiente". Não são bugs. |
@@ -37,7 +37,7 @@ Além dos cenários roteirizados, foram feitas sessões de **teste exploratório
 ## Rastreabilidade: critério de aceite × cenários
 
 | Critério | Cenários de interface | Cenários de API |
-|---|---|---|
+| --- | --- | --- |
 | CA01 desconto de 10% | CT-CUP-01, 02, 03, 14, 15 | CT-APC-01, 05 |
 | CA02 caixa e espaços | CT-CUP-04, 05, 09 | CT-APC-02 |
 | CA03 cupom inválido | CT-CUP-06, 07, 13 | CT-APC-03, CT-APP-03 |
@@ -55,7 +55,7 @@ Além dos cenários roteirizados, foram feitas sessões de **teste exploratório
 ## Critério para classificar os bugs
 
 | Severidade | Quando se aplica |
-|---|---|
+| --- | --- |
 | Alta | Um critério de aceite não é atendido e o cliente ou a loja tem prejuízo financeiro, ou uma regra de negócio pode ser burlada. |
 | Média | Um critério de aceite não é atendido, mas existe contorno ou o impacto é limitado. |
 | Baixa | Comportamento inconsistente ou confuso que não descumpre um critério de aceite. |

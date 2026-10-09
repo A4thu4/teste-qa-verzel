@@ -5,7 +5,7 @@
 Pontos em que a documentação permite mais de uma leitura. Para cada um está registrada a interpretação adotada nos testes.
 
 | ID | Trecho | Dúvida | Interpretação adotada |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | AMB-01 | CA11: "Todos os valores são arredondados para 2 casas decimais." | O critério não diz a regra de arredondamento (metade para cima, para baixo ou para o par). | Arredondamento comercial, metade para cima. **O critério não pôde ser exercitado de verdade:** todos os preços são múltiplos de R$ 0,10 e o único cupom válido é de 10%, então o desconto sempre cai exato em centavos. Nenhum cenário possível gera a terceira casa decimal. Os testes confirmam que os valores saem com no máximo 2 casas e sem resíduo de ponto flutuante, mas a regra de arredondamento em si só seria testável com um cupom de 15% válido ou um preço com centavos quebrados. |
 | AMB-02 | CA10: "no máximo 5 unidades por pedido." | O limite é por produto ou pelo total de itens do pedido? | Por produto, como diz o início da frase ("Cada produto pode ter"). Um pedido com 5 mochilas e 5 garrafas é válido. |
 | AMB-03 | CA03: cupom inexistente exibe "Cupom inválido." | O que acontece ao aplicar com o campo vazio ou só com espaços? | Não é um cupom inexistente, é ausência de cupom. Espera-se uma mensagem orientando o preenchimento e nenhum desconto. O texto exato não é cobrado. |
@@ -22,5 +22,5 @@ Pontos em que a documentação permite mais de uma leitura. Para cada um está r
 Comportamentos notados durante a execução que não descumprem um critério de aceite, mas que valem uma conversa com o time. Não foram abertos como bug.
 
 | ID | Observação | Onde | Sugestão |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | OBS-01 | _preencher com o que for confirmado nas sessões exploratórias_ | | |

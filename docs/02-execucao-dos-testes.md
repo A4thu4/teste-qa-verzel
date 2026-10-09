@@ -1,10 +1,10 @@
 # Execução dos testes
 
 | | |
-|---|---|
+| --- | --- |
 | Executado por | Arthur Mamedes Borges |
 | Data | _preencher_ |
-| Ambiente | https://verzel-store.qa-test-verzel-store.workers.dev, versão 2.3.0 |
+| Ambiente | <https://verzel-store.qa-test-verzel-store.workers.dev>, versão 2.3.0 |
 | Navegador e sistema | _preencher_ |
 
 **Legenda do status:** ✅ passou · ❌ falhou (bug aberto) · ⚠️ passou com observação · ⬜ não executado
@@ -12,7 +12,7 @@
 ## Resumo
 
 | Total de cenários | ✅ Passou | ❌ Falhou | ⚠️ Com observação | ⬜ Não executado |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | 84 | _n_ | _n_ | _n_ | _n_ |
 
 Dos 84 cenários, 54 estão automatizados com Playwright e os outros 30 são executados manualmente.
@@ -24,7 +24,7 @@ Dos 84 cenários, 54 estão automatizados com Playwright e os outros 30 são exe
 Arquivo: [`01-cupom.feature`](cenarios/01-cupom.feature)
 
 | ID | Cenário | Critério | Tipo | Automatizado | Status | Evidência / Bug |
-|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- |
 | CT-CUP-01 | Cupom BEMVINDO10 aplica 10% sobre o subtotal de um único produto | CA01 | Interface | Sim | ⬜ | |
 | CT-CUP-02 | Desconto de 10% incide sobre a soma de todos os produtos do carrinho | CA01 | Interface | Não | ⬜ | |
 | CT-CUP-03 | Desconto é recalculado quando a quantidade muda com o cupom aplicado | CA01 | Interface | Não | ⬜ | |
@@ -46,7 +46,7 @@ Arquivo: [`01-cupom.feature`](cenarios/01-cupom.feature)
 Arquivo: [`02-frete.feature`](cenarios/02-frete.feature)
 
 | ID | Cenário | Critério | Tipo | Automatizado | Status | Evidência / Bug |
-|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- |
 | CT-FRE-01 | Subtotal de exatamente R$ 200,00 tem frete grátis | CA06 | Interface | Sim | ⬜ | |
 | CT-FRE-02 | Subtotal de R$ 200,00 formado por outro produto também tem frete grátis | CA06 | Interface | Não | ⬜ | |
 | CT-FRE-03 | Subtotal acima de R$ 200,00 tem frete grátis | CA06 | Interface | Sim | ⬜ | |
@@ -64,7 +64,7 @@ Arquivo: [`02-frete.feature`](cenarios/02-frete.feature)
 Arquivo: [`03-quantidade.feature`](cenarios/03-quantidade.feature)
 
 | ID | Cenário | Critério | Tipo | Automatizado | Status | Evidência / Bug |
-|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- |
 | CT-QTD-01 | Vitrine não permite adicionar a sexta unidade do mesmo produto | CA10 | Interface | Sim | ⬜ | |
 | CT-QTD-02 | Carrinho não permite aumentar a quantidade acima de 5 | CA10 | Interface | Sim | ⬜ | |
 | CT-QTD-03 | Carrinho não permite diminuir a quantidade abaixo de 1 | CA10 | Interface | Não | ⬜ | |
@@ -80,7 +80,7 @@ Arquivo: [`03-quantidade.feature`](cenarios/03-quantidade.feature)
 Arquivo: [`04-calculo-e-arredondamento.feature`](cenarios/04-calculo-e-arredondamento.feature)
 
 | ID | Cenário | Critério | Tipo | Automatizado | Status | Evidência / Bug |
-|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- |
 | CT-CAL-01 | Exemplo de cálculo da documentação | CA11 | API | Sim | ⬜ | |
 | CT-CAL-02 | Valores com centavos são devolvidos com no máximo 2 casas decimais (7 exemplos) | CA11 | API | Sim | ⬜ | |
 | CT-CAL-03 | Total de cada item é o preço unitário vezes a quantidade | CA11 | API | Sim | ⬜ | |
@@ -93,7 +93,7 @@ Arquivo: [`04-calculo-e-arredondamento.feature`](cenarios/04-calculo-e-arredonda
 Arquivo: [`05-checkout.feature`](cenarios/05-checkout.feature)
 
 | ID | Cenário | Critério | Tipo | Automatizado | Status | Evidência / Bug |
-|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- |
 | CT-CHK-01 | Pedido é confirmado com dados válidos | Regressão | Interface | Sim | ⬜ | |
 | CT-CHK-02 | Resumo do checkout repete os valores e os itens do carrinho | Regressão | Interface | Não | ⬜ | |
 | CT-CHK-03 | Checkout informa que o pagamento é feito na entrega | Regressão | Interface | Não | ⬜ | |
@@ -112,7 +112,7 @@ Arquivo: [`05-checkout.feature`](cenarios/05-checkout.feature)
 Arquivo: [`06-api-produtos-e-erros.feature`](cenarios/06-api-produtos-e-erros.feature)
 
 | ID | Cenário | Critério | Tipo | Automatizado | Status | Evidência / Bug |
-|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- |
 | CT-API-01 | Listar produtos devolve os 8 produtos da documentação | Doc. da API | API | Sim | ⬜ | |
 | CT-API-02 | Consultar um produto existente pelo id | Doc. da API | API | Sim | ⬜ | |
 | CT-API-03 | Consultar um produto inexistente devolve 404 | Doc. da API | API | Sim | ⬜ | |
@@ -127,7 +127,7 @@ Arquivo: [`06-api-produtos-e-erros.feature`](cenarios/06-api-produtos-e-erros.fe
 Arquivo: [`07-api-carrinho.feature`](cenarios/07-api-carrinho.feature)
 
 | ID | Cenário | Critério | Tipo | Automatizado | Status | Evidência / Bug |
-|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- |
 | CT-APC-01 | Cupom BEMVINDO10 aplica 10% sobre o subtotal | CA01 | API | Sim | ⬜ | |
 | CT-APC-02 | Código do cupom ignora caixa e espaços nas pontas (4 exemplos) | CA02 | API | Sim | ⬜ | |
 | CT-APC-03 | Cupom inexistente responde 200 sem desconto | CA03 | API | Sim | ⬜ | |
@@ -147,7 +147,7 @@ Arquivo: [`07-api-carrinho.feature`](cenarios/07-api-carrinho.feature)
 Arquivo: [`08-api-pedidos.feature`](cenarios/08-api-pedidos.feature)
 
 | ID | Cenário | Critério | Tipo | Automatizado | Status | Evidência / Bug |
-|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- |
 | CT-APP-01 | Pedido válido com cupom é confirmado | Doc. da API | API | Sim | ⬜ | |
 | CT-APP-02 | Pedido devolve os mesmos valores do cálculo do carrinho | Doc. da API | API | Sim | ⬜ | |
 | CT-APP-03 | Pedido com cupom inexistente devolve 422 CUPOM_INVALIDO | CA03 | API | Sim | ⬜ | |
@@ -158,6 +158,7 @@ Arquivo: [`08-api-pedidos.feature`](cenarios/08-api-pedidos.feature)
 | CT-APP-08 | CEP com 8 dígitos é aceito com ou sem hífen (2 exemplos) | Doc. da API | API | Sim | ⬜ | |
 | CT-APP-09 | Pedido sem itens devolve 422 ITENS_OBRIGATORIOS | Doc. da API | API | Sim | ⬜ | |
 | CT-APP-10 | Número do pedido é gerado a cada confirmação | Doc. da API | API | Não | ⬜ | |
+
 ## Testes exploratórios
 
 Sessões curtas com uma missão definida, sem roteiro passo a passo. O que foi encontrado virou bug em [03-bugs.md](03-bugs.md) ou observação em [05-ambiguidades-e-observacoes.md](05-ambiguidades-e-observacoes.md).
@@ -165,7 +166,7 @@ Sessões curtas com uma missão definida, sem roteiro passo a passo. O que foi e
 ### Sessão 1: entradas inesperadas no cupom
 
 | | |
-|---|---|
+| --- | --- |
 | Missão | Descobrir como o campo de cupom e a API se comportam com entradas que a documentação não prevê. |
 | Duração | _preencher_ |
 | O que explorar | Campo vazio, só espaços, espaço no meio, caracteres especiais, texto muito longo, cupom como número ou lista na API, aplicar duas vezes seguidas, aplicar e esvaziar o carrinho. |
@@ -175,7 +176,7 @@ Sessões curtas com uma missão definida, sem roteiro passo a passo. O que foi e
 ### Sessão 2: dados do cliente no checkout
 
 | | |
-|---|---|
+| --- | --- |
 | Missão | Encontrar nomes, e-mails e CEPs válidos que são recusados e inválidos que são aceitos. |
 | Duração | _preencher_ |
 | O que explorar | Nomes com acento, apóstrofo, hífen, partes de uma letra, só números. E-mails com subdomínio, sinal de mais, dois pontos seguidos, ponto no fim. CEP com espaços, pontos, só zeros. Comparar a interface com a API para o mesmo dado. |
@@ -185,7 +186,7 @@ Sessões curtas com uma missão definida, sem roteiro passo a passo. O que foi e
 ### Sessão 3: navegação e estado do carrinho
 
 | | |
-|---|---|
+| --- | --- |
 | Missão | Verificar se o carrinho, o cupom e o resumo continuam coerentes fora do caminho feliz. |
 | Duração | _preencher_ |
 | O que explorar | Recarregar a página em cada etapa, botão voltar do navegador depois de confirmar o pedido, abrir /checkout e /pedido-confirmado direto pelo endereço, esvaziar o carrinho com cupom aplicado, cliques rápidos nos botões de quantidade, tela estreita de celular, navegação só pelo teclado. |
@@ -195,7 +196,7 @@ Sessões curtas com uma missão definida, sem roteiro passo a passo. O que foi e
 ### Sessão 4: contrato da API
 
 | | |
-|---|---|
+| --- | --- |
 | Missão | Procurar diferenças entre o que a documentação da API promete e o que ela responde. |
 | Duração | _preencher_ |
 | O que explorar | Rotas com barra no fim, /api sem caminho, requisição sem Content-Type, campos extras no corpo, produtoId em minúsculas, quantidade muito grande, formato dos erros em cada status. |
