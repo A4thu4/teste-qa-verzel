@@ -29,6 +29,7 @@ Documentos de apoio:
 
 - [`docs/01-plano-de-teste.md`](docs/01-plano-de-teste.md): escopo, técnicas usadas e rastreabilidade entre critérios de aceite e cenários.
 - [`docs/05-ambiguidades-e-observacoes.md`](docs/05-ambiguidades-e-observacoes.md): pontos ambíguos da documentação com a interpretação adotada.
+- [`Uso de inteligência artificial`](#uso-de-inteligência-artificial): onde e como a IA foi usada neste teste.
 
 ## Estrutura do repositório
 
@@ -170,3 +171,24 @@ Com isso a suíte fica verde enquanto só existirem os bugs conhecidos, e qualqu
 ### Cuidados com o ambiente compartilhado
 
 A loja é usada por outros candidatos ao mesmo tempo. A suíte roda em sequência, faz cerca de uma centena de requisições leves e não inclui teste de carga, estresse ou segurança.
+
+## Uso de inteligência artificial
+
+Usei o Claude (Anthropic) como assistente durante todo o teste. Os commits em que ele participou estão identificados no histórico com `Co-Authored-By: Claude`.
+
+### Onde a IA foi usada
+
+| Etapa | O que a IA fez | O que eu fiz |
+| --- | --- | --- |
+| Cenários de teste | Redigiu os 84 cenários em Gherkin a partir da documentação da entrega e montou a rastreabilidade com os critérios de aceite. | Revisei os cenários e executei manualmente os 24 de interface que não foram automatizados, com as capturas de tela. |
+| Automação | Ajudou a estruturar a suíte em Playwright com Python (page objects, fixtures, testes de API e de interface) e a configuração do Codespaces. | Rodei a suíte no GitHub Codespaces, acompanhei a correção do erro de instalação do navegador e gerei o relatório final (107 `passed`, 6 `xfailed`). |
+| Bugs | Apontou os dois desvios (BUG-001 e BUG-002) ao explorar a loja e a API, e redigiu os reports. | Reproduzi os dois: o BUG-001 manualmente na interface, com captura, e o BUG-002 pela API, com o script de evidências e os testes automatizados. |
+| Testes exploratórios | Estruturou os scripts `explorar_api.py` e `explorar_interface.py` com as tentativas de cada sessão e registrou as observações a partir dos resultados. | Defini que as sessões seriam feitas por script, executei os scripts e versionei os relatórios e capturas gerados. |
+| Evidências de API | Estruturou o script `coletar_evidencias_api.py`. | Executei o script, ajustei o registro de horário para o fuso de Brasília e versionei os arquivos gerados. |
+| Documentação | Redigiu o plano de teste, a tabela de execução, o registro de ambiguidades e o README, incluindo o parecer. | Preenchi os dados de execução e ambiente, revisei o conteúdo e aprovei cada alteração por pull request antes de ir para o `main`. |
+
+### Como foi usada
+
+- Trabalhei em conversa com a IA: ela propunha e eu executava, conferia o resultado no ambiente real e pedia ajustes.
+- Toda execução contra a loja que consta como evidência foi feita por mim: os testes manuais, a suíte automatizada e os scripts.
+- Usei as explicações da IA para estudar os conceitos aplicados (análise de valor-limite, partição de equivalência, page objects, `xfail`).
