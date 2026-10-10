@@ -14,13 +14,13 @@
 
 | Total de cenários | ✅ Passou | ❌ Falhou | ⚠️ Com observação | ⬜ Não executado |
 | --- | --- | --- | --- | --- |
-| 84 | 73 | 7 | 0 | 4 |
+| 84 | 77 | 7 | 0 | 0 |
 
-Dos 84 cenários, 54 estão automatizados com Playwright e os outros 30 são executados manualmente.
+Dos 84 cenários, 57 estão automatizados com Playwright e os outros 27 são executados manualmente. CT-CHK-05, CT-CHK-07 e CT-CHK-12 foram planejados como manuais e passaram para a automação: os dois primeiros têm 9 exemplos que gerariam capturas repetidas, e o terceiro termina num redirecionamento que uma captura não mostra.
 
 Os 54 automatizados foram executados em 09/10/2026: 49 passaram e 5 falharam pelos bugs BUG-001 e BUG-002. Na automação isso aparece como 97 testes `passed` e 6 `xfailed`, porque um cenário com vários exemplos vira vários testes. A saída completa está em [04-evidencias.md](04-evidencias.md#execução-da-automação) e o relatório em [`resultado.xml`](evidencias/automacao/resultado.xml).
 
-Dos 30 manuais, 26 foram executados em 09/10/2026: 24 passaram e 2 falharam pelo BUG-001 (CT-FRE-02 e CT-FRE-08). Os três de API (CT-API-08, CT-APC-13 e CT-APP-10) foram executados pelo script [`coletar_evidencias_api.py`](../automacao/coletar_evidencias_api.py). Faltam CT-CHK-05, CT-CHK-07, CT-CHK-12 e CT-API-04.
+Os 27 manuais foram executados em 09/10/2026: 25 passaram e 2 falharam pelo BUG-001 (CT-FRE-02 e CT-FRE-08). Os três de API (CT-API-08, CT-APC-13 e CT-APP-10) foram executados pelo script [`coletar_evidencias_api.py`](../automacao/coletar_evidencias_api.py). Os 3 que passaram para a automação (CT-CHK-05, CT-CHK-07 e CT-CHK-12) rodaram em 09/10/2026 com 10 testes `passed`. Todos os 84 cenários foram executados.
 
 ## Testes roteirizados
 
@@ -103,14 +103,14 @@ Arquivo: [`05-checkout.feature`](cenarios/05-checkout.feature)
 | CT-CHK-02 | Resumo do checkout repete os valores e os itens do carrinho | Regressão | Interface | Não | ✅ | [checkout](evidencias/feature_checkout/CT-CHK-10-formulario-em-branco-aponta-obrigatorios.png) · [confirmação](evidencias/feature_checkout/CT-CHK-02e03-resumo-checkout-repete-valores-e-itens-com-pagamento-entrega.png) |
 | CT-CHK-03 | Checkout informa que o pagamento é feito na entrega | Regressão | Interface | Não | ✅ | [checkout](evidencias/feature_checkout/CT-CHK-10-formulario-em-branco-aponta-obrigatorios.png) · [confirmação](evidencias/feature_checkout/CT-CHK-02e03-resumo-checkout-repete-valores-e-itens-com-pagamento-entrega.png) |
 | CT-CHK-04 | Nome sem sobrenome é recusado (3 exemplos) | Regressão | Interface | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
-| CT-CHK-05 | Nome com nome e sobrenome é aceito (6 exemplos) | Regressão | Interface | Não | ⬜ | |
+| CT-CHK-05 | Nome com nome e sobrenome é aceito (6 exemplos) | Regressão | Interface | Sim | ✅ | [automação](04-evidencias.md#execução-da-automação), execução de 09/10/2026 |
 | CT-CHK-06 | E-mail em formato inválido é recusado (7 exemplos) | Regressão | Interface | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
-| CT-CHK-07 | E-mail em formato válido é aceito (3 exemplos) | Regressão | Interface | Não | ⬜ | |
+| CT-CHK-07 | E-mail em formato válido é aceito (3 exemplos) | Regressão | Interface | Sim | ✅ | [automação](04-evidencias.md#execução-da-automação), execução de 09/10/2026 |
 | CT-CHK-08 | CEP que não tem 8 dígitos é recusado (6 exemplos) | Regressão | Interface | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
 | CT-CHK-09 | CEP com 8 dígitos é aceito com ou sem hífen (2 exemplos) | Regressão | Interface | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
 | CT-CHK-10 | Formulário em branco aponta os três campos obrigatórios de uma vez | Regressão | Interface | Não | ✅ | [print](evidencias/feature_checkout/CT-CHK-10-formulario-em-branco-aponta-obrigatorios.png) |
 | CT-CHK-11 | Corrigir os dados depois de um erro permite confirmar o pedido | Regressão | Interface | Não | ✅ | [print](evidencias/feature_checkout/CT-CHK-11-erro-e-solicitar-corrigir-dados.png) |
-| CT-CHK-12 | Checkout não fica acessível com o carrinho vazio | Regressão | Interface | Não | ⬜ | |
+| CT-CHK-12 | Checkout não fica acessível com o carrinho vazio | Regressão | Interface | Sim | ✅ | [automação](04-evidencias.md#execução-da-automação), execução de 09/10/2026 |
 
 ### API de produtos e tratamento geral de erros
 
@@ -121,7 +121,7 @@ Arquivo: [`06-api-produtos-e-erros.feature`](cenarios/06-api-produtos-e-erros.fe
 | CT-API-01 | Listar produtos devolve os 8 produtos da documentação | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) · [API](evidencias/api/CT-API-01-listar-produtos.md) |
 | CT-API-02 | Consultar um produto existente pelo id | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
 | CT-API-03 | Consultar um produto inexistente devolve 404 | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) · [API](evidencias/api/CT-API-03-produto-inexistente.md) |
-| CT-API-04 | Preços da vitrine são os mesmos devolvidos pela API | Doc. da API | API | Não | ⬜ | |
+| CT-API-04 | Preços da vitrine são os mesmos devolvidos pela API | Doc. da API | API | Não | ✅ | [print](evidencias/feature_api/CT-API-04-precos-vitrine-iguais-da-api.png) · [API](evidencias/api/CT-API-01-listar-produtos.md) |
 | CT-API-05 | Rota inexistente devolve 404 ROTA_NAO_ENCONTRADA | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
 | CT-API-06 | Método não aceito pela rota devolve 405 METODO_NAO_PERMITIDO (4 exemplos) | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
 | CT-API-07 | Corpo que não é um objeto JSON válido devolve 400 JSON_INVALIDO (3 exemplos) | Doc. da API | API | Sim | ✅ | [automação](evidencias/automacao/resultado.xml) |
@@ -173,37 +173,37 @@ Sessões curtas com uma missão definida, sem roteiro passo a passo. O que foi e
 | | |
 | --- | --- |
 | Missão | Descobrir como o campo de cupom e a API se comportam com entradas que a documentação não prevê. |
-| Duração | _preencher_ |
+| Duração | API: script `explorar_api.py`, 6 tentativas · Interface: script `explorar_interface.py`, 6 tentativas |
 | O que explorar | Campo vazio, só espaços, espaço no meio, caracteres especiais, texto muito longo, cupom como número ou lista na API, aplicar duas vezes seguidas, aplicar e esvaziar o carrinho. |
-| Anotações | _preencher_ |
-| Resultado | _preencher_ |
+| Anotações | **API** (tentativas 1 a 6 do [relatório](evidencias/exploratorio/sessoes-api.md)):<br>• Cupom só com espaços: o cálculo responde 200 com "Cupom inválido." e código vazio; o pedido responde 422 `CUPOM_INVALIDO`. Já o cupom vazio (`""`) é tratado como "sem cupom" e o pedido é aceito.<br>• Cupom como número (`123`), como lista, com 200 caracteres ou com `!` no fim: "Cupom inválido.", sem desconto e sem erro de servidor.<br>**Interface** (tentativas 1 a 6 do [relatório](evidencias/exploratorio/sessoes-interface.md)):<br>• Cupom só com espaços: a tela mostra "Informe um cupom.", ou seja, trata como campo vazio, diferente da API ([print](evidencias/exploratorio/interface/01-sessao-1.png)).<br>• `BEMVINDO10!`, `B3MVINDO10` e 200 caracteres: "Cupom inválido.", sem desconto.<br>• F5 com o cupom aplicado: o cupom e o desconto continuam ([print](evidencias/exploratorio/interface/05-sessao-1.png)).<br>• Esvaziar o carrinho com cupom: o cupom sai junto; ao adicionar um produto de novo, o carrinho começa sem cupom. |
+| Resultado | **API:** nenhum bug. 1 observação: [OBS-01](05-ambiguidades-e-observacoes.md#observações). **Interface:** nenhum bug. A diferença entre tela e API no cupom só com espaços entra na OBS-01. |
 
 ### Sessão 2: dados do cliente no checkout
 
 | | |
 | --- | --- |
 | Missão | Encontrar nomes, e-mails e CEPs válidos que são recusados e inválidos que são aceitos. |
-| Duração | _preencher_ |
+| Duração | Script `explorar_interface.py`, 10 tentativas |
 | O que explorar | Nomes com acento, apóstrofo, hífen, partes de uma letra, só números. E-mails com subdomínio, sinal de mais, dois pontos seguidos, ponto no fim. CEP com espaços, pontos, só zeros. Comparar a interface com a API para o mesmo dado. |
-| Anotações | _preencher_ |
-| Resultado | _preencher_ |
+| Anotações | Tentativas 7 a 16 do [relatório](evidencias/exploratorio/sessoes-interface.md), com o restante dos dados válidos:<br>• `A B` e `Maria S`: recusados com "Informe nome e sobrenome.", embora haja nome e sobrenome ([print](evidencias/exploratorio/interface/07-sessao-2.png)).<br>• `123 456`: aceito, e a confirmação diz "Obrigado, 123." ([print](evidencias/exploratorio/interface/09-sessao-2.png)).<br>• Nome com vários espaços no meio: aceito.<br>• `maria@exemplo..com`, `maria@exemplo.com.` e `maria@exemplo.c`: os três aceitos ([print](evidencias/exploratorio/interface/11-sessao-2.png)).<br>• CEP `00000-000`: aceito; tem 8 dígitos, então atende à regra.<br>• CEP com espaços antes e depois: aceito, os espaços são ignorados.<br>• CEP com pontos (`01.310-100`): recusado com "Informe um CEP com 8 dígitos.", coerente com "com ou sem hífen". |
+| Resultado | Nenhum bug: a documentação não define tamanho mínimo, caracteres permitidos nem o rigor do e-mail (AMB-06 e AMB-07). 2 observações: [OBS-04 e OBS-05](05-ambiguidades-e-observacoes.md#observações). |
 
 ### Sessão 3: navegação e estado do carrinho
 
 | | |
 | --- | --- |
 | Missão | Verificar se o carrinho, o cupom e o resumo continuam coerentes fora do caminho feliz. |
-| Duração | _preencher_ |
+| Duração | Script `explorar_interface.py`, 8 tentativas |
 | O que explorar | Recarregar a página em cada etapa, botão voltar do navegador depois de confirmar o pedido, abrir /checkout e /pedido-confirmado direto pelo endereço, esvaziar o carrinho com cupom aplicado, cliques rápidos nos botões de quantidade, tela estreita de celular, navegação só pelo teclado. |
-| Anotações | _preencher_ |
-| Resultado | _preencher_ |
+| Anotações | Tentativas 17 a 24 do [relatório](evidencias/exploratorio/sessoes-interface.md):<br>• F5 no carrinho: itens e valores continuam, como prevê a seção "Sobre este ambiente".<br>• F5 no checkout: o resumo continua, mas os campos preenchidos são apagados.<br>• F5 na confirmação: o mesmo número de pedido continua na tela.<br>• Voltar depois de confirmar: leva ao carrinho vazio, sem como reenviar o mesmo pedido.<br>• `/pedido-confirmado` direto, sem pedido: mostra "Nenhum pedido recente" ([print](evidencias/exploratorio/interface/21-sessao-3.png)).<br>• 10 cliques rápidos no `+`: a quantidade para em 5 e o subtotal em R$ 500,00. O limite resiste a cliques rápidos.<br>• Tela de celular (390 px): compra completa sem rolagem horizontal ([print](evidencias/exploratorio/interface/23-sessao-3.png)). No cabeçalho, só o link do carrinho aparece; Produtos e Documentação somem e não há menu, mas a página inicial continua acessível pelo logotipo.<br>• Só teclado: Tab e Enter chegam a "Adicionar ao carrinho", ao carrinho, a "Finalizar compra" e aos campos, e o Enter no CEP confirma o pedido ([print](evidencias/exploratorio/interface/24-sessao-3.png)). |
+| Resultado | Nenhum bug e nenhuma observação. Os campos do checkout apagados no F5 e os links que somem no celular são pontos de melhoria, sem descumprir nenhuma regra. |
 
 ### Sessão 4: contrato da API
 
 | | |
 | --- | --- |
 | Missão | Procurar diferenças entre o que a documentação da API promete e o que ela responde. |
-| Duração | _preencher_ |
+| Duração | Script `explorar_api.py`, 15 tentativas, cerca de 1 minuto |
 | O que explorar | Rotas com barra no fim, /api sem caminho, requisição sem Content-Type, campos extras no corpo, produtoId em minúsculas, quantidade muito grande, formato dos erros em cada status. |
-| Anotações | _preencher_ |
-| Resultado | _preencher_ |
+| Anotações | Tentativas 7 a 21 do [relatório](evidencias/exploratorio/sessoes-api.md):<br>• `GET /api` devolve a página HTML da loja com status 200, em vez do 404 `ROTA_NAO_ENCONTRADA` em JSON.<br>• Barra no fim (`/api/produtos/` e `/api/produtos/P001/`) é aceita e responde como sem barra.<br>• Corpo com `Content-Type` de formulário ou `text/plain` é aceito e calculado normalmente, embora a documentação peça `application/json`.<br>• Campos a mais no corpo e no item são ignorados. Um `preco: 1` enviado no item não altera o preço: o servidor usa o próprio (R$ 100,00). Comportamento correto.<br>• `produtoId` em minúsculas (`p001`) não é encontrado, no cálculo (422) e na consulta (404): os ids diferenciam maiúsculas de minúsculas.<br>• Quantidade 1.000.000 é aceita, com subtotal de R$ 59.900.000,00: mais uma evidência do [BUG-002](03-bugs.md#bug-002).<br>• Erros 400, 404 e 405 trazem `codigo` e `mensagem`, sem `campo`; o 422 traz `campo`. Coerente com a interpretação [AMB-10](05-ambiguidades-e-observacoes.md#ambiguidades-da-documentação). |
+| Resultado | Nenhum bug novo; o BUG-002 se confirma também com quantidade 1.000.000. 2 observações: [OBS-02 e OBS-03](05-ambiguidades-e-observacoes.md#observações). |
