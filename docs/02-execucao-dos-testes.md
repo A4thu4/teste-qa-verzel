@@ -18,9 +18,9 @@
 
 Dos 84 cenários, 57 estão automatizados com Playwright e os outros 27 são executados manualmente. CT-CHK-05, CT-CHK-07 e CT-CHK-12 foram planejados como manuais e passaram para a automação: os dois primeiros têm 9 exemplos que gerariam capturas repetidas, e o terceiro termina num redirecionamento que uma captura não mostra.
 
-Os 54 automatizados foram executados em 09/10/2026: 49 passaram e 5 falharam pelos bugs BUG-001 e BUG-002. Na automação isso aparece como 97 testes `passed` e 6 `xfailed`, porque um cenário com vários exemplos vira vários testes. A saída completa está em [04-evidencias.md](04-evidencias.md#execução-da-automação) e o relatório em [`resultado.xml`](evidencias/automacao/resultado.xml).
+Os 57 automatizados foram executados em 09/10/2026: 52 passaram e 5 falharam pelos bugs BUG-001 e BUG-002. Na automação isso aparece como 107 testes `passed` e 6 `xfailed`, porque um cenário com vários exemplos vira vários testes. A saída completa está em [04-evidencias.md](04-evidencias.md#execução-da-automação) e o relatório em [`resultado.xml`](evidencias/automacao/resultado.xml).
 
-Os 27 manuais foram executados em 09/10/2026: 25 passaram e 2 falharam pelo BUG-001 (CT-FRE-02 e CT-FRE-08). Os três de API (CT-API-08, CT-APC-13 e CT-APP-10) foram executados pelo script [`coletar_evidencias_api.py`](../automacao/coletar_evidencias_api.py). Os 3 que passaram para a automação (CT-CHK-05, CT-CHK-07 e CT-CHK-12) rodaram em 09/10/2026 com 10 testes `passed`. Todos os 84 cenários foram executados.
+Os 27 manuais foram executados em 09/10/2026: 25 passaram e 2 falharam pelo BUG-001 (CT-FRE-02 e CT-FRE-08). Os três de API (CT-API-08, CT-APC-13 e CT-APP-10) foram executados pelo script [`coletar_evidencias_api.py`](../automacao/coletar_evidencias_api.py). Todos os 84 cenários foram executados.
 
 ## Testes roteirizados
 
