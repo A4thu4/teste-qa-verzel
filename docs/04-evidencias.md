@@ -75,6 +75,7 @@ As evidências ficam na pasta [`evidencias/`](evidencias/). Cada arquivo começa
 | Sessão | Evidência |
 | --- | --- |
 | 1 (parte de API) e 4 | [Relatório das 21 tentativas de API](evidencias/exploratorio/sessoes-api.md), gerado por [`automacao/explorar_api.py`](../automacao/explorar_api.py) |
+| 1 (parte de interface), 2 e 3 | [Relatório das 24 tentativas de interface](evidencias/exploratorio/sessoes-interface.md), com uma captura por tentativa, gerado por [`automacao/explorar_interface.py`](../automacao/explorar_interface.py) |
 
 ## Execução da automação
 

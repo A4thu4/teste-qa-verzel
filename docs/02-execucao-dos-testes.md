@@ -173,30 +173,30 @@ Sessões curtas com uma missão definida, sem roteiro passo a passo. O que foi e
 | | |
 | --- | --- |
 | Missão | Descobrir como o campo de cupom e a API se comportam com entradas que a documentação não prevê. |
-| Duração | API: script `explorar_api.py`, 6 tentativas · Interface: _preencher_ |
+| Duração | API: script `explorar_api.py`, 6 tentativas · Interface: script `explorar_interface.py`, 6 tentativas |
 | O que explorar | Campo vazio, só espaços, espaço no meio, caracteres especiais, texto muito longo, cupom como número ou lista na API, aplicar duas vezes seguidas, aplicar e esvaziar o carrinho. |
-| Anotações | **API** (tentativas 1 a 6 do [relatório](evidencias/exploratorio/sessoes-api.md)):<br>• Cupom só com espaços: o cálculo responde 200 com "Cupom inválido." e código vazio; o pedido responde 422 `CUPOM_INVALIDO`. Já o cupom vazio (`""`) é tratado como "sem cupom" e o pedido é aceito.<br>• Cupom como número (`123`), como lista, com 200 caracteres ou com `!` no fim: "Cupom inválido.", sem desconto e sem erro de servidor.<br>**Interface:** _preencher_ |
-| Resultado | **API:** nenhum bug. 1 observação: [OBS-01](05-ambiguidades-e-observacoes.md#observações). **Interface:** _preencher_ |
+| Anotações | **API** (tentativas 1 a 6 do [relatório](evidencias/exploratorio/sessoes-api.md)):<br>• Cupom só com espaços: o cálculo responde 200 com "Cupom inválido." e código vazio; o pedido responde 422 `CUPOM_INVALIDO`. Já o cupom vazio (`""`) é tratado como "sem cupom" e o pedido é aceito.<br>• Cupom como número (`123`), como lista, com 200 caracteres ou com `!` no fim: "Cupom inválido.", sem desconto e sem erro de servidor.<br>**Interface** (tentativas 1 a 6 do [relatório](evidencias/exploratorio/sessoes-interface.md)):<br>• Cupom só com espaços: a tela mostra "Informe um cupom.", ou seja, trata como campo vazio, diferente da API ([print](evidencias/exploratorio/interface/01-sessao-1.png)).<br>• `BEMVINDO10!`, `B3MVINDO10` e 200 caracteres: "Cupom inválido.", sem desconto.<br>• F5 com o cupom aplicado: o cupom e o desconto continuam ([print](evidencias/exploratorio/interface/05-sessao-1.png)).<br>• Esvaziar o carrinho com cupom: o cupom sai junto; ao adicionar um produto de novo, o carrinho começa sem cupom. |
+| Resultado | **API:** nenhum bug. 1 observação: [OBS-01](05-ambiguidades-e-observacoes.md#observações). **Interface:** nenhum bug. A diferença entre tela e API no cupom só com espaços entra na OBS-01. |
 
 ### Sessão 2: dados do cliente no checkout
 
 | | |
 | --- | --- |
 | Missão | Encontrar nomes, e-mails e CEPs válidos que são recusados e inválidos que são aceitos. |
-| Duração | _preencher_ |
+| Duração | Script `explorar_interface.py`, 10 tentativas |
 | O que explorar | Nomes com acento, apóstrofo, hífen, partes de uma letra, só números. E-mails com subdomínio, sinal de mais, dois pontos seguidos, ponto no fim. CEP com espaços, pontos, só zeros. Comparar a interface com a API para o mesmo dado. |
-| Anotações | _preencher_ |
-| Resultado | _preencher_ |
+| Anotações | Tentativas 7 a 16 do [relatório](evidencias/exploratorio/sessoes-interface.md), com o restante dos dados válidos:<br>• `A B` e `Maria S`: recusados com "Informe nome e sobrenome.", embora haja nome e sobrenome ([print](evidencias/exploratorio/interface/07-sessao-2.png)).<br>• `123 456`: aceito, e a confirmação diz "Obrigado, 123." ([print](evidencias/exploratorio/interface/09-sessao-2.png)).<br>• Nome com vários espaços no meio: aceito.<br>• `maria@exemplo..com`, `maria@exemplo.com.` e `maria@exemplo.c`: os três aceitos ([print](evidencias/exploratorio/interface/11-sessao-2.png)).<br>• CEP `00000-000`: aceito; tem 8 dígitos, então atende à regra.<br>• CEP com espaços antes e depois: aceito, os espaços são ignorados.<br>• CEP com pontos (`01.310-100`): recusado com "Informe um CEP com 8 dígitos.", coerente com "com ou sem hífen". |
+| Resultado | Nenhum bug: a documentação não define tamanho mínimo, caracteres permitidos nem o rigor do e-mail (AMB-06 e AMB-07). 2 observações: [OBS-04 e OBS-05](05-ambiguidades-e-observacoes.md#observações). |
 
 ### Sessão 3: navegação e estado do carrinho
 
 | | |
 | --- | --- |
 | Missão | Verificar se o carrinho, o cupom e o resumo continuam coerentes fora do caminho feliz. |
-| Duração | _preencher_ |
+| Duração | Script `explorar_interface.py`, 8 tentativas |
 | O que explorar | Recarregar a página em cada etapa, botão voltar do navegador depois de confirmar o pedido, abrir /checkout e /pedido-confirmado direto pelo endereço, esvaziar o carrinho com cupom aplicado, cliques rápidos nos botões de quantidade, tela estreita de celular, navegação só pelo teclado. |
-| Anotações | _preencher_ |
-| Resultado | _preencher_ |
+| Anotações | Tentativas 17 a 24 do [relatório](evidencias/exploratorio/sessoes-interface.md):<br>• F5 no carrinho: itens e valores continuam, como prevê a seção "Sobre este ambiente".<br>• F5 no checkout: o resumo continua, mas os campos preenchidos são apagados.<br>• F5 na confirmação: o mesmo número de pedido continua na tela.<br>• Voltar depois de confirmar: leva ao carrinho vazio, sem como reenviar o mesmo pedido.<br>• `/pedido-confirmado` direto, sem pedido: mostra "Nenhum pedido recente" ([print](evidencias/exploratorio/interface/21-sessao-3.png)).<br>• 10 cliques rápidos no `+`: a quantidade para em 5 e o subtotal em R$ 500,00. O limite resiste a cliques rápidos.<br>• Tela de celular (390 px): compra completa sem rolagem horizontal ([print](evidencias/exploratorio/interface/23-sessao-3.png)). No cabeçalho, só o link do carrinho aparece; Produtos e Documentação somem e não há menu, mas a página inicial continua acessível pelo logotipo.<br>• Só teclado: Tab e Enter chegam a "Adicionar ao carrinho", ao carrinho, a "Finalizar compra" e aos campos, e o Enter no CEP confirma o pedido ([print](evidencias/exploratorio/interface/24-sessao-3.png)). |
+| Resultado | Nenhum bug e nenhuma observação. Os campos do checkout apagados no F5 e os links que somem no celular são pontos de melhoria, sem descumprir nenhuma regra. |
 
 ### Sessão 4: contrato da API
 

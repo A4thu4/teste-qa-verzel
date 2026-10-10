@@ -4,4 +4,5 @@ Padrão de nome: `<ID>-<descrição-curta>.<extensão>`, por exemplo `CT-FRE-05-
 
 - `feature_cupom/`, `feature_frete/`, `feature_qntd/`, `feature_calculo/`, `feature_checkout/`, `feature_api/`: capturas de tela da execução manual, uma pasta por funcionalidade
 - `api/`: requisição e resposta das chamadas à API, gravadas por `automacao/coletar_evidencias_api.py`
+- `exploratorio/`: relatórios das sessões exploratórias de API e de interface, com as capturas de interface em `exploratorio/interface/`
 - `automacao/`: relatório da execução do Playwright
